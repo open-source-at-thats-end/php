@@ -15,10 +15,10 @@ $s3Client = new S3Client([
     'region' => 'us-east-2',
     'version' => 'latest',
     'credentials' => [
-        //'key'    => 'AKIA3SHXNH7RKLQMMBVX',
-        //'secret' => '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',
-        'key'    => 'AKIAXKJXK2I5FTQHYSVN',
-        'secret' => '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',
+        //'key'    => 'XXX',
+        //'secret' => 'XXX',
+        'key'    => 'XXX',
+        'secret' => 'XXX',
     ],
 
 ]);
