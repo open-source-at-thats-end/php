@@ -1,0 +1,80 @@
+
+.te-text-dark-light{
+	color: #828282;
+}
+
+.te-table-striped tbody tr:nth-of-type(even) {
+    background-color: #f7f7f9;
+}
+
+.te-border-right{
+	border-right: 1px solid #bbbbbb!important;
+}
+
+.te-market-stats{
+	font-size: 40px;
+	font-weight: 600;
+}
+
+.te-bg-table{
+	background-color: #d9d8dd;
+}
+
+.te-tbody{
+	font-size: 17px;
+}
+
+.table td, .table th {
+	font-weight: 600;
+}
+
+@media (max-width: 900px) {
+	.te-market-stats {
+    font-size: 28px;
+	}
+}
+
+
+@media (max-width: 750px) {
+	.te-market-report-title h3{
+		font-size: 26px;
+	}
+
+	.te-request-contact-btn .btn{
+		width: 100%;
+	}
+
+	.te-market-stats {
+	    font-size: 30px;
+	}
+
+	.te-view-all-active-listing .btn{
+		width: 100%;
+	}
+
+	.te-market-stats {
+	    font-size: 30px;
+	    font-weight: 600;
+	}
+
+	.te-closed-sales-report button{
+		display: block;
+		margin: 0 auto;
+	}
+
+}
+
+@media (max-width: 500px) {
+	.te-closed-sales-report button.te-border-right, .te-active-listings-overview-button button.te-border-right{
+		border-right: initial !important;
+	}
+}
+
+
+@media (max-width: 320px) {
+
+	.te-market-title{
+		font-size: 20px;
+	}
+
+}

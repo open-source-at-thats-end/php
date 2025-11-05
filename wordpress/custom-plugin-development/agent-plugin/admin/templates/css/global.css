@@ -1,0 +1,12 @@
+.icon2		{background: url("../img/module-icons.png") no-repeat center left; padding-left:20px !important; min-height:16px}
+.icon2.icon2-listings {background-position:0 -129px}
+.icon2.icon2-dashboard {background-position:0 -842px}
+.icon2.icon2-predefined-searches {background-position:0 -325px}
+
+/* WP Menu */
+/*.wpmenu {clear:both; overflow:hidden; padding-left:12px;}
+.wpmenu a {float:left}
+.wpmenu a:first-child
+{
+	display:none !important;
+}*/

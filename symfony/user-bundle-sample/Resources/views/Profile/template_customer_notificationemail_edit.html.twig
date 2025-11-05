@@ -1,0 +1,57 @@
+{% trans_default_domain 'frontend' %}
+
+
+<div class="box">
+    <h2>{%trans%}General settings{%endtrans%}</h2>
+
+    <div class="roundedImage" >
+    </div>    
+    <div class="f-row">
+
+        <div class="one-half">
+            {{ form_widget(form.statuscreated) }}
+        </div>
+
+        <div class="one-half">
+            {{ form_widget(form.statuscancelbyclient) }}
+        </div>
+        <div class="one-half">
+            {{ form_widget(form.statusaffected) }}
+        </div>
+        <div class="one-half">
+            {{ form_widget(form.statusdone) }}
+        </div>
+        <div class="one-half">
+            {{ form_widget(form.statusacceptedbydriver) }}
+        </div>
+        <div class="one-half">
+            {{ form_widget(form.statusarriveddriver) }}
+        </div>
+        <div class="one-half">
+            {{ form_widget(form.statuscancelbydriver) }}
+        </div>
+        <div class="one-half">
+            {{ form_widget(form.statusdrivergotoclient) }}
+        </div>
+
+    </div>
+
+    <fieldset>
+
+            <button class="btn large green" type="submit">{%trans%}Update{%endtrans%}</button>
+        </div>
+    </fieldset>
+</div>
+
+
+{{ form_widget(form) }}   
+{{ form_end(form) }}   
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,22 @@
+
+{% trans_default_domain 'FOSUserBundle' %}
+{% form_theme form 'CABUserBundle:Form:fields_modal.html.twig' %}
+{{ form_start(form, {"attr": {"id": "modal-create-user", "action": "{{ path('fos_user_registration_register') }}","class":"fos_user_registration_register"}}) }}
+
+    <header class="panel-heading">
+        <h2 class="panel-title">Registration Form</h2>
+    </header>
+
+    <div  class="panel-body">
+        {{ form_widget(form) }}
+    </div>
+    <footer class="panel-footer">
+        <div class="row">
+            <div class="col-md-12 text-right">
+                <input type="submit" class="btn btn-primary" id="submit-create_user" value="{{ 'registration.submit'|trans }}"/>
+                <button class="btn btn-default modal-dismiss">Cancel</button>
+            </div>
+        </div>
+    </footer>
+    <input type="hidden" name="added_role" value="{{ role }}"/>
+{{ form_end(form) }}

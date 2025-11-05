@@ -1,0 +1,8 @@
+{% extends "CABAdminBundle::layout.html.twig" %}
+
+{% block sonata_page_content %}
+    {{ include('CABAdminBundle:Common:content_header.html.twig') }}
+    {% block fos_user_content %}
+        {% include "FOSUserBundle:Profile:show_content.html.twig" %}
+    {% endblock fos_user_content %}
+{% endblock sonata_page_content %}

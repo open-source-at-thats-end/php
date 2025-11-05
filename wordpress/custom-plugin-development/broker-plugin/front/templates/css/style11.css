@@ -1,0 +1,126 @@
+/* Start Slider 11 */
+.p-slider-11 .slick-dots{
+    /*padding: unset !important;*/
+    bottom: unset !important;
+    line-height: 38px !important;
+    padding-top: 1rem !important;
+}
+
+.p-slider-11 .slick-dots li button:before{
+    font-size: 14px !important;
+}
+
+.p11.properties-slider .slick-arrow.slick-prev::before {
+    border-color: transparent transparent #333 #333;
+}
+.p11.properties-slider .slick-arrow.slick-next::before {
+    border-color: #333 #333 transparent transparent;
+}
+.p11.properties-slider .slick-arrow.slick-next::before{
+    left: 42%;
+}
+.p11.properties-slider .slick-arrow.slick-prev::before{
+    left: 59%;
+}
+/*.properties-slider.p-slider-11.card .property-img{
+    height: 270px !important;
+    overflow: hidden;
+}*/
+.properties-slider.p-slider-11 .slick-slide
+{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.properties-slider.p-slider-11 .slick-slide img{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.properties-slider.p-slider-11 .draggable{
+    padding: 0px;
+}
+.properties-slider.p-slider-11  .p-info-item{
+    padding: 24px 30px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 660px;
+    max-width: 100%;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
+    display: inline;
+    background: rgba(255,255,255,.8);
+    color: black;
+}
+
+
+
+/*style 11 start*/
+.te-style-11 ul{
+    line-height: 14px !important;
+}
+
+.te-style-11 .cus-pt{
+    padding-top: 27px !important;
+}
+.te-style-11.te-property-card{
+    height: 300px !important;
+    /*font-family: Montserrat, Arapey !important;*/
+    letter-spacing: 0 !important;
+}
+.te-style-11 .crypto-data ul li img {
+    width: 24px !important;
+    height: 24px !important;
+}
+
+/*.listings-box .te-style-11 .crypto-data ul{
+    line-height: 14px !important;
+}*/
+
+@media (max-width: 430px) {
+    .te-style-11 .te-property-details-price-change{
+        text-align : right !important;
+    }
+}
+@media (max-width: 320px) {
+    .te-style-11 ul{
+        line-height: 10px !important;
+    }
+    .te-style-11 .te-font-size-11 {
+        font-size: 8px !important;
+    }
+    .te-property-details-price {
+        font-size: 13px !important;
+    }
+
+}
+
+/*style 11 end*/
+
+/*style 11 start*/
+.te-style-11.te-property-card{
+    height: 300px !important;
+   /* font-family: Montserrat, Arapey !important;*/
+    letter-spacing: 0 !important;
+}
+
+/*style 11 end*/
+/*
+@media (max-width: 414px) {
+    .p-slider-11 .slick-dots{
+        display: flex !important;
+        width: 30% !important;
+    }
+}*/

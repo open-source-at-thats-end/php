@@ -1,0 +1,186 @@
+
+{% trans_default_domain 'FOSUserBundle' %}
+{% form_theme form 'CABUserBundle:Form:fields_fo.html.twig' %}
+
+   {% block fos_user_content %}
+<main role="main" class="main blue">
+   <!-- Page info -->
+   <header class="site-title green">
+       <div class="wrap">
+           <div class="container">
+               <h1>{% trans %}Register{% endtrans %}</h1>
+           </div>
+       </div>
+   </header>
+    <div class="wrap">
+        <div class="row">
+            <div class="content">
+                <div class="box">
+                    <!--- Content -->
+                    <div class="full-width content">
+                        <h2>{% trans %}Sign-up{% endtrans %}</h2>
+                        <p class="text-center">{% trans %}Already have an account?{% endtrans %} <a href="{{ path('fos_user_security_login') }}">Sign In!</a>
+
+                        <p>{% trans %}Please ensure all of the required fields are completed at the time of booking. This information is imperative to ensure a smooth journey{% endtrans %}.<br />{% trans %}All fields are required{% endtrans %}.</p>
+                    </div>
+                    <!--- //Content -->
+
+                    <div class="full-width content">
+                        <form action="{{ path('fos_user_registration_register') }}" method="post" class="">
+                            {#form_widget(form) #}
+                            <div class="row">
+                                <div class="content col-xs-12 col-ms-6 col-md-10 col-md-offset-1">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            {{ form_row(form.email, { 'attr': {'placeholder': 'Email'|trans}, 'label': false }) }}
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            {{ form_row(form.username, { 'attr': {'placeholder': 'Username'|trans}, 'label': false }) }}
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-md ">
+                                        <div class="col-md-6">
+                                            {{ form_row(form.firstName, { 'attr': {'placeholder': 'firstName'|trans}, 'label': false }) }}
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            {{ form_row(form.lastName, { 'attr': {'placeholder': 'lastName'|trans}, 'label': false }) }}
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-md ">
+                                        <div class="col-md-6">
+                                            {{ form_row(form.plainPassword.first, { 'attr': {'placeholder': 'Password'|trans}, 'label': false }) }}
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            {{ form_row(form.plainPassword.second, { 'attr': {'placeholder': 'Repeat password'|trans}, 'label': false }) }}
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            {{ form_row(form.phoneMobile, { 'label': false }) }}
+                                        </div>
+                                       <div class="col-md-6">
+                                        {{ form_row(form.address, { 'attr': {'class': 'maps_input','placeholder': 'Specify a location'|trans,'onfocus':'geolocate()'}, 'label': false,'class' : 'maps_input' }) }}
+                                        </div>
+                                        {{ form_row(form.postCode)}}
+                                        {{ form_row(form.city)}}
+                                        {{ form_row(form.country)}}
+                                        {{ form_row(form.latuser)}}
+                                        {{ form_row(form.lnguser)}}
+                                        <input type="hidden" name="added_role" value="{{ role }}"/>
+                                        {{ form_row(form.rolesCreated,{'attr': {'value': 'ROLE_CUSTOMER' }}) }}
+                                        <input type="hidden" name="reg_booking" value="1"/>
+                                    </div>
+
+
+                                    <div class="row mb-md ">
+                                        <div class="col-md-6">
+                                            {{ form_row(form.submit,{'attr': {'class': 'btn large green','value': 'submit'|trans }}) }}
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="role" value="ROLE_USER"/>
+
+                                   
+                                    <p class="text-center">Already have an account? <a href="{{ path('fos_user_security_login') }}">Sign In!</a>
+                                </div>
+                            </div>
+                            {{ form_widget(form._token) }}
+                        </form>
+                    </div>
+                </div>
+            </div>
+       </div>
+   </div>
+       <!-- end: page -->
+{% endblock fos_user_content %}
+<script type="text/javascript" >
+    $(document).ready(function() {
+       $("#cab_user_registration_phoneMobile").intlTelInput({
+        //allowExtensions: true,
+        //autoFormat: false,
+        //autoHideDialCode: false,
+        //autoPlaceholder: false,
+        defaultCountry: "auto",
+        geoIpLookup: function(callback) {
+           $.get('http://ipinfo.io', function() {}, "jsonp").always(function(resp) {
+             var countryCode = (resp && resp.country) ? resp.country : "";
+             callback(countryCode);
+           });
+        },
+        nationalMode: false,
+        numberType: "MOBILE",
+        //onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
+        preferredCountries: ['fr'],  
+       utilsScript: "{{asset('test/assets/lib/utils.js')}}"
+       
+    });
+
+});
+</script> 
+    <script>
+ function initAutocomplete() {
+     
+var componentForm = {
+
+locality: 'long_name',
+ 
+};
+     
+  // Create the autocomplete object, restricting the search to geographical
+  // location types.
+autocomplete = new google.maps.places.Autocomplete(
+      /** @type {!HTMLInputElement} */(document.getElementById('cab_user_registration_address')),
+      {types: ['geocode']});
+      
+
+google.maps.event.addListener(autocomplete, 'place_changed', function()  {
+    var place = autocomplete.getPlace();
+    var components = place.address_components;
+    
+    var street = null;
+    $("#cab_user_registration_city").val('');
+    $("#cab_user_registration_country").val('');
+    $("#cab_user_registration_postCode").val('');
+    $("#cab_user_registration_latuser").val('');
+    $("#cab_user_registration_lnguser").val('');
+    for (var i = 0, component; component = components[i]; i++) {
+        console.log(component);
+        
+        
+        if (component.types[0] == 'route') {
+            street = component['long_name'];
+        }
+        if (component.types[0] == 'locality') {
+            locality = component['long_name'];
+        $("#cab_user_registration_city").val = '';    
+        $("#cab_user_registration_city").val(locality.toUpperCase());    
+        }
+        if (component.types[0] == 'country') {
+            country = component['short_name'];
+        $("#cab_user_registration_country").val(country.toUpperCase());    
+        }
+        if (component.types[0] == 'postal_code') {
+            postal_code = component['long_name'];
+        
+        $("#cab_user_registration_postCode").val(postal_code.toUpperCase());    
+        }
+        
+    }
+    //alert('Street: ' + street);
+    $("#cab_user_registration_latuser").val(place.geometry.location.lat());
+    $("#cab_user_registration_lnguser").val(place.geometry.location.lng());
+    //alert(place.geometry.location.lat());
+});
+
+
+}
+
+    </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXBQ0kSrvFmuTpQ_aAFX4rap1C_dj9Sac&signed_in=true&libraries=places&callback=initAutocomplete"async defer></script>    
+    
+   

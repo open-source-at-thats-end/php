@@ -1,0 +1,209 @@
+{% trans_default_domain 'frontend' %}
+
+{{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
+<div class="box">
+    <h2>{%trans%}General settings{%endtrans%}</h2>
+
+    <div class="roundedImage" >
+    </div>
+    <div class="f-row">
+        <div class="one-half">
+            {{ form_widget(form.avatar) }}
+        </div>
+        <div class="one-half">
+            {{ form_widget(form.username) }}
+        </div>
+    </div>
+
+    <fieldset>
+        <div class="f-row">
+            <div class="one-half">
+                <label for="name">{%trans%}First Name{%endtrans%}</label>
+                {{ form_widget(form.firstName) }}
+            </div>
+            <div class="one-half">
+                <label for="company">{%trans%}Last Name{%endtrans%}</label>
+                {{ form_widget(form.lastName) }}
+            </div>
+        </div>
+        <div class="f-row">
+            <div class="one-half">
+                <label for="email">{%trans%}Your email{%endtrans%}</label>
+                {{ form_widget(form.email) }}
+            </div>
+            <div class="one-half">
+                <label for="number">{%trans%}Mobile number{%endtrans%}</label><br>
+                {{ form_widget(form.phoneMobile) }}
+            </div>
+        </div>
+        <div class="f-row">
+            <div class="one-half">
+                <label for="address">{%trans%}Street address{%endtrans%}</label>
+                {{ form_widget(form.address) }}
+            </div>
+            <div class="one-half">
+                <label for="zip">{%trans%}Zip code{%endtrans%}</label>
+                {{ form_widget(form.postCode) }}
+            </div>
+        </div>
+        <div class="f-row">
+            <div class="one-half">
+                <label for="city">{%trans%}City{%endtrans%}</label>
+                {{ form_widget(form.city) }}
+            </div>
+            <div class="one-half">
+                <label for="country">{%trans%}Country{%endtrans%}</label>
+                {{ form_widget(form.country) }}
+            </div>
+        </div>
+        <div class="f-row">
+            <button class="btn large green" type="submit">{%trans%}Update{%endtrans%}</button>
+        </div>
+    </fieldset>
+</div>
+
+<div class="box">
+    <h2>{%trans%}Personnal settings{%endtrans%}</h2>
+    <div class="f-row">
+        <div class="one-third">
+            <label for="country">{%trans%}Handicap{%endtrans%}</label>
+            {{ form_widget(form.isHandicap) }}
+        </div>
+        <div class="one-third">
+            <label for="country">{%trans%}Home phone{%endtrans%}</label><br>
+            {{ form_widget(form.phoneHome) }}
+        </div>
+        <div class="one-third">
+            <label for="country">{%trans%}Work phone{%endtrans%}</label><br>
+            {{ form_widget(form.phoneWork) }}
+        </div>
+        <div class="">
+            <label for="adress">{%trans%}Address complement{%endtrans%}</label>
+            {{ form_widget(form.addressComplement) }}
+        </div>
+    </div>
+    <div class="f-row">
+        <button class="btn large green" type="submit">{%trans%}Update{%endtrans%}</button>
+    </div>
+
+</div>
+
+<div class="box">
+    <h2>{%trans%}Compagny settings{%endtrans%}</h2>
+    <div class="f-row">
+        <div class="one-third">
+            <label for="country">{%trans%}Name Compagny{%endtrans%}</label>
+            {{ form_widget(form.nameCompany) }}
+        </div>
+        <div class="one-third">
+            <label for="country">{%trans%}Siren{%endtrans%}</label>
+            {{ form_widget(form.siren) }}
+        </div>
+        <div class="one-third">
+            <label for="country">{%trans%}Compagny phone{%endtrans%}</label><br>
+            {{ form_widget(form.phoneCompany) }}
+        </div>
+
+    </div>
+    <div class="f-row">
+        <button class="btn large green" type="submit">{%trans%}Update{%endtrans%}</button>
+    </div>
+
+</div>
+
+
+
+<script type="text/javascript" >
+    $(document).ready(function () {
+        $("#fos_user_profile_form_phoneHome,#fos_user_profile_form_phoneCompany,#fos_user_profile_form_phoneMobile,#fos_user_profile_form_phoneWork").intlTelInput({
+            //allowExtensions: true,
+            //autoFormat: false,
+            //autoHideDialCode: false,
+            //autoPlaceholder: false,
+            defaultCountry: "auto",
+            geoIpLookup: function (callback) {
+                $.get('http://ipinfo.io', function () {
+                }, "jsonp").always(function (resp) {
+                    var countryCode = (resp && resp.country) ? resp.country : "";
+                    callback(countryCode);
+                });
+            },
+            nationalMode: false,
+            numberType: "MOBILE",
+            //onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
+            preferredCountries: ['fr'],
+            utilsScript: "{{asset('test/assets/lib/utils.js')}}"
+
+        });
+    });
+</script>
+<script>
+    function initAutocomplete() {
+
+        var componentForm = {
+            locality: 'long_name',
+        };
+
+        // Create the autocomplete object, restricting the search to geographical
+        // location types.
+        autocomplete = new google.maps.places.Autocomplete(
+                /** @type {!HTMLInputElement} */(document.getElementById('fos_user_profile_form_address')),
+                {types: ['geocode']});
+
+
+        google.maps.event.addListener(autocomplete, 'place_changed', function () {
+            var place = autocomplete.getPlace();
+            var components = place.address_components;
+
+            var street = null;
+            $("#fos_user_profile_form_city").val('');
+            $("#fos_user_profile_form_country").val('');
+            $("#fos_user_profile_form_postCode").val('');
+            $("#cab_user_registration_latuser").val('');
+            $("#cab_user_registration_lnguser").val('');
+            for (var i = 0, component; component = components[i]; i++) {
+                console.log(component);
+
+
+                if (component.types[0] == 'route') {
+                    street = component['long_name'];
+                }
+                if (component.types[0] == 'locality') {
+                    locality = component['long_name'];
+                    $("#fos_user_profile_form_city").val = '';
+                    $("#fos_user_profile_form_city").val(locality.toUpperCase());
+                }
+                if (component.types[0] == 'country') {
+                    country = component['short_name'];
+                    $("#fos_user_profile_form_country").val(country.toUpperCase());
+                }
+                if (component.types[0] == 'postal_code') {
+                    postal_code = component['long_name'];
+
+                    $("#fos_user_profile_form_postCode").val(postal_code.toUpperCase());
+                }
+
+            }
+            //alert('Street: ' + street);
+            $("#fos_user_profile_form_latUser").val(place.geometry.location.lat());
+            $("#fos_user_profile_form_lngUser").val(place.geometry.location.lng());
+            //alert(place.geometry.location.lat());
+        });
+
+
+    }
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXBQ0kSrvFmuTpQ_aAFX4rap1C_dj9Sac&signed_in=true&libraries=places&callback=initAutocomplete"async defer></script>
+
+{{ form_widget(form) }}
+{{ form_end(form) }}
+
+
+
+
+
+
+
+
+

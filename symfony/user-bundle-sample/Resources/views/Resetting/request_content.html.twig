@@ -1,0 +1,57 @@
+{% trans_default_domain 'frontend' %}
+
+    
+    
+<main role="main" class="main blue">
+           <!-- Page info -->
+           <header class="site-title green">
+               <div class="wrap">
+                   <div class="container">
+                       <h1>{% trans %}Reset password{% endtrans %}</h1>
+                       
+                   </div>
+               </div>
+           </header>
+           <!-- //Page info -->
+
+           <div class="wrap">
+               <div class="row">
+                   <!--- Content -->
+                   <div class="content col-xs-12 col-ms-6 col-md-4 col-md-offset-4">
+                       <!--Login-->
+                       <div class="box">
+                           
+                           
+                           <form action="{{ path('fos_user_resetting_send_email') }}" method="POST">
+                               {#form_widget(form) #}
+                               
+                               
+                        <div class="f-row">
+                            
+                                {% if invalid_username is defined %}
+                                <p>{{ 'This email is bad, contact we '|trans }} <a href="{{ path('contact') }}">here </a></p>
+                                
+                                {% endif %}
+                            
+                            <div class="col-md-12">
+                            <input type="text" id="username" name="username" placeholder="{%trans%}Your email{%endtrans%}" required="required" />    
+                            
+                            </div>
+                           
+                        </div>   
+                            <div class="col-md-12">
+                            <input type="submit" class="btn large green" value="{{ 'submit'|trans }}" />
+                            </div>
+                               
+                           </form>
+                         
+                        </div>
+             
+                       <!--//Login-->
+                     </div>
+                   <!--- //Content -->
+               </div>
+           </div>
+                       
+                       
+       </main>

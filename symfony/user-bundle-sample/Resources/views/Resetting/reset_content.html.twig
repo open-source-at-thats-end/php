@@ -1,0 +1,44 @@
+{% trans_default_domain 'frontend' %}
+
+{% block title %}{% trans %}Reset you password{% endtrans %} {% endblock %}
+{% block main_content %}
+    {% block fos_user_content %}
+
+        <main role="main" class="main blue">
+            <!-- Page info -->
+            <header class="site-title green">
+                <div class="wrap">
+                    <div class="container">
+                        <h1>{% trans %}Reset password{% endtrans %}</h1>
+                    </div>
+                </div>
+            </header>  
+            <div class="wrap">
+                <div class="row">
+                    <!--- Content -->
+                    <div class="content col-md-6 col-md-offset-3">
+                        <!--Login-->
+                        <div class="box">     
+                            <form action="{{ path('fos_user_resetting_reset', {'token': token}) }}" {{ form_enctype(form) }} method="POST" class="fos_user_resetting_reset">
+                                {{ form_widget(form._token)}}
+                                <div class="f-row">
+                                    <div class="full-width">
+                                    <input type="password" id="fos_user_resetting_form_plainPassword_first" class="form-control input-lg" name="fos_user_resetting_form[plainPassword][first]"  required="required" placeholder="{% trans %}New Password{% endtrans %}" >
+                                    </div>
+                                </div>
+                                <div class="f-row">
+                                    <div class="full-width">
+                                    <input type="password" id="fos_user_resetting_form_plainPassword_second" class="form-control input-lg" name="fos_user_resetting_form[plainPassword][second]" required="required" placeholder="{% trans %}Repeat new password{% endtrans %}">
+                                    </div>
+                                </div>
+                                <div>
+                                    <button type="submit" class="btn large green">{% trans %}Modify{% endtrans %}</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</main>
+    {% endblock fos_user_content %}
+{% endblock main_content %}

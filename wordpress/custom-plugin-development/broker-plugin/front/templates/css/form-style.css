@@ -1,0 +1,173 @@
+* {
+    box-sizing: border-box;
+}
+
+
+.form-title {
+    color: #4e4e4e;
+}
+
+/* form starting stylings ------------------------------- */
+.group {
+    margin-bottom: 35px;
+}
+
+input, textarea, select {
+    font-size: 15px !important;
+    padding: 5px 10px 10px 5px !important;
+    border: none !important;
+    border-bottom: 1px solid #b3b3b3 !important;
+}
+
+    input:focus, textarea:focus {
+        outline: none;
+    }
+
+/* LABEL ======================================= */
+.form-label {
+    color: #8c8c8c;
+    font-size: 16px;
+    pointer-events: none;
+    left: 4px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+/* active state */
+input:focus ~ .form-label, input:valid ~ .form-label, textarea:focus ~ .form-label, textarea:valid ~ .form-label, select:focus ~ .form-label, select:valid ~ .form-label {
+    top: -24px;
+    font-size: 14px;
+    color: #3a3a3a!important;
+    font-weight: 700;
+}
+
+/* BOTTOM BARS ================================= */
+
+.bar:before, .bar:after {
+    content: '';
+    height: 1px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #000000;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+    textarea + .bar:before, textarea + .bar:after {
+        bottom: 7px;
+    }
+}
+
+@-moz-document url-prefix() {
+    textarea + .bar:before, textarea + .bar:after {
+        bottom: 2px;
+    }
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none){
+    .bar:before, .bar:after {
+        bottom: 1px;
+    }
+}
+
+.bar:before {
+    left: 50%;
+}
+
+.bar:after {
+    right: 50%;
+}
+
+
+/* active state */
+input:focus ~ .bar:before, input:focus ~ .bar:after, textarea:focus ~ .bar:before, textarea:focus ~ .bar:after {
+    width: 50%;
+}
+
+.custom-checkbox .custom-control-label::before {
+    border: 3px solid #c3cdd4;
+}
+
+.btn-submit{
+    font-size: 18px;
+    border:2px solid #1fbf53;
+}
+
+.btn-submit:hover{
+    border:2px solid #1fbf53;
+}
+
+
+/* HIGHLIGHTER ================================== */
+
+/* active state */
+input:focus ~ .highlight, textarea:focus ~ .highlight {
+    -webkit-animation: inputHighlighter 0.3s ease;
+    -moz-animation: inputHighlighter 0.3s ease;
+    animation: inputHighlighter 0.3s ease;
+}
+
+hr{
+    width: 80%;
+    background-color: #bfbfbf;
+}
+
+
+
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+    from {
+        background: #fff;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@-moz-keyframes inputHighlighter {
+    from {
+        background: #fff;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@keyframes inputHighlighter {
+    from {
+        background: #fff;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@media (max-width: 1024px) {
+    input:focus ~ .form-label, input:valid ~ .form-label, textarea:focus ~ .form-label, textarea:valid ~ .form-label, select:focus ~ .form-label, select:valid ~ .form-label {
+        font-size: 12px;
+    }
+}
+
+
+@media (max-width: 900px) {
+    .custom-checkbox{
+        width: 100% !important;
+    }
+
+    .form-title{
+        font-size: 24px;
+    }
+}

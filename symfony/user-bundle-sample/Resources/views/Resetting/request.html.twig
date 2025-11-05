@@ -1,0 +1,8 @@
+{% extends "CABMainBundle::layout.html.twig" %}
+{% trans_default_domain 'frontend' %}
+{% block title %}{% trans %}Reset password{% endtrans %} {% endblock %}
+{% block main_content %}
+        {% block fos_user_content %}
+            {% include "CABUserBundle:Resetting:request_content.html.twig" %}
+        {% endblock fos_user_content %}
+{% endblock main_content %}

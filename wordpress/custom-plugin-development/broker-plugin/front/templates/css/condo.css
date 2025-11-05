@@ -1,0 +1,387 @@
+#condo-building .condo-slider .listing-box img{
+    min-height: 330px;
+    max-height: 500px;
+}
+#condo-building .properties-slider .property-info{
+    padding-bottom: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+#condo-building .condo-overlay{
+    position: absolute;
+    background: #282728;
+    height: 100%;
+    width: 100%;
+    bottom: 0;
+    opacity: 0.20;
+    z-index: 1;
+    padding: 10% 4%;
+}
+#condo-building .properties-slider .slick-prev{
+    left: 0%;
+    background-color: rgb(0 0 0 / 60%);
+}
+#condo-building .properties-slider .slick-next{
+    right: 0%;
+    background-color: rgb(0 0 0 / 60%);
+}
+#condo-building .properties-slider .slick-arrow:before{
+    margin: -7px 0 0 -7px;
+    width: 13px;
+    height: 13px;
+}
+#condo-building .properties-slider.condo-slider .te-property-card{
+    height: 500px;
+}
+#condo-building .properties-slider.condo-slider .listing-box{
+    height: 500px !important;
+}
+#condo-building .condo-idx-list ul{
+    list-style-type: none !important;
+}
+#condo-building .condo-idx ul{
+    list-style-type: none !important;
+}
+#condo-building .condo-font-size-18{
+    font-size: 18px;
+}
+#condo-building /*.condo-idx */ul a.condo-border-right{
+    /*border-right: 1px solid #ececec !important;*/
+    border-right: 1px solid #E1E1E1 !important;
+}
+/*#condo-building .condo-pv-url img{
+    max-height: 250px;
+    object-fit: cover;
+}
+#condo-building .condo-pv-url .embed-responsive{
+    height: 245px;
+    max-height: 245px;
+}
+#condo-building .condo-pv-url .embed-responsive::before{
+    padding-top: 3% !important;
+}*/
+#condo-building .cus-fwight-bold{
+    font-weight: 500 !important;
+}
+#condo-building .text-border-bottom{
+    border-bottom: 2px solid #333;
+}
+#condo-building .condo-idx ul a{
+    color: #007bff !important;
+    background-color: #ececec !important;
+    /*border: 1px solid #ececec !important;*/
+    border-top: unset !important;
+    border-bottom: unset !important;
+    border-left: unset !important;
+}
+#condo-building .condo-idx-list ul a{
+    color: #007bff !important;
+    background-color: #ececec !important;
+    /*border: 1px solid #ececec !important;*/
+    border-top: unset !important;
+    border-bottom: unset !important;
+    border-left: unset !important;
+}
+#condo-building #viewTab a{
+    background-color: unset !important;
+    /*color: #333 !important;*/
+}
+#condo-building .condo-idx .table-hover tbody tr:hover{
+    background-color: #ececec !important;
+}
+#condo-building .table-border{
+    border: 1px solid #ececec !important;
+    border-collapse: collapse !important;
+}
+#condo-building sup{
+    font-size: 75%;
+}
+#condo-building #viewTab li a:hover{
+    /*color: #009cbd;*/
+    color: #9A9A9A !important;
+}
+#condo-building #viewTab li a{
+    /*color: #009cbd;*/
+    /*color: #9A9A9A !important;*/
+    color: #A8A8A8 !important;
+}
+/*#condo-building #viewTab .nav-link.active{
+    background-color: unset !important;
+    color: #9A9A9A !important;
+}*/
+#condo-building #viewTab .nav-link.active:hover{
+    color: #A8A8A8 !important;
+}
+#condo-building table.dataTable thead .sorting:after, table.dataTable thead .sorting_asc:after, table.dataTable thead .sorting_desc:after, table.dataTable thead .sorting_asc_disabled:after, table.dataTable thead .sorting_desc_disabled:after{
+    top: 5px;
+    font-size: 18px;
+}
+#condo-building table.dataTable thead .sorting:before, table.dataTable thead .sorting_asc:before, table.dataTable thead .sorting_desc:before, table.dataTable thead .sorting_asc_disabled:before, table.dataTable thead .sorting_desc_disabled:before{
+    top: 5px;
+    font-size: 18px;
+}
+#condo-building .clickable-row{
+    cursor: pointer;
+}
+#condo-building #list thead tr th{
+    height: 30px;
+    vertical-align: middle;
+}
+#condo-building #list tbody tr td{
+    height: 35px;
+    vertical-align: middle;
+}
+#condo-building .fav-icon{
+    color: #009cbd;
+}
+#condo-building .custom-select:focus{
+    box-shadow: none;
+}
+#condo-building .condo-idx .listgridOptions, .cusOptions{
+    color: #007bff !important;
+    background-color: #ececec !important;
+}
+#condo-building .condo-idx .mblList, .mblGrid, .mblView{
+    background-color: #ececec !important;
+}
+#condo-building .listgridOptions #condo-list{
+    background-color: #ececec !important;
+}
+#condo-building select{
+    font-family: fontAwesome;
+}
+#condo-building .mblView .custom-select{
+    background: #fff url("data:''") no-repeat right 0rem center/8px 10px;
+}
+#condo-building .condo-idx .custom-select{
+    height: calc(1.5em + 1.50rem + 2px);
+}
+#condo-building .condo-slider .property-info h3{
+    font-size: 18px;
+    font-weight: 600 !important;
+}
+#condo-building .nav-tabs .nav-link.active:hover{
+    color: #007bff !important;
+    background-color: #ececec !important;
+}
+#condo-building .te-text-shadow{
+    text-shadow: 1px 1px #424242;
+}
+#condo-building .heading h3{
+    font-size: 23px;
+}
+#condo-building .condo-idx .custom-select{
+    background: #ececec !important;
+}
+#condo-building #datagrid .te-property-details-price{
+    font-size: 18px;
+    font-weight: 600;
+}
+@media (min-width: 812px){
+    #condo-building .cp-2{
+        padding-left: 2px !important;
+        padding-right: 2px !important;
+    }
+}
+/*@media (max-width: 1680px){
+    #condo-building .condo-pv-url p{
+        font-size: 15px;
+    }
+}
+@media (max-width: 1440px){
+    #condo-building .condo-pv-url p{
+        font-size: 14px;
+    }
+}*/
+@media (min-width: 568px) and (max-width: 568px){
+    #condo-building .mblList .custom-select{
+        background: #ececec url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0rem center/8px 10px !important;
+    }
+    #condo-building .mblGrid .custom-select{
+        background: #ececec url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0rem center/8px 10px !important;
+    }
+}
+@media (min-width: 1281px) and (max-width: 1366px){
+    #condo-building ul#dataListTab ul#dataGridTab, li a span.tabsFSize{
+        font-size: 10px !important;
+    }
+}
+@media (min-width: 1081px) and (max-width: 1280px){
+    #condo-building ul#dataListTab ul#dataGridTab, li a span.tabsFSize{
+        font-size: 9px !important;
+    }
+    /*#condo-building .condo-pv-url p{
+        font-size: 13px;
+    }*/
+}
+@media (min-width: 1280px) and (max-width: 1440px){
+    #condo-building .properties-slider .listing-box img{
+        min-height: 400px;
+    }
+    #condo-building .properties-slider.condo-slider .listing-box{
+        height: 400px !important;
+    }
+    #condo-building .properties-slider .slick-slide img{
+        height: 400px !important;
+    }
+    #condo-building .te-property-card{
+        height: 400px !important;
+    }
+}
+/*@media (min-width: 1024px) and (max-width: 1080px){
+    #condo-building .condo-idx-list .condo-sub-title{
+        font-size: 22px !important;
+    }
+}*/
+@media (min-width: 768px) and (max-width: 812px){
+    #condo-building .condo-idx-list ul li span{
+        font-size: 12px !important;
+    }
+}
+@media (max-width: 812px){
+    #condo-building .properties-slider .listing-box img{
+        min-height: 400px;
+    }
+    #condo-building .properties-slider.condo-slider .listing-box{
+        height: 400px !important;
+    }
+    #condo-building .properties-slider .slick-slide img{
+        height: 400px !important;
+    }
+    #condo-building .te-property-card{
+        height: 400px !important;
+    }
+    #condo-building{
+        overflow-x: hidden;
+    }
+    #condo-building .mblList .custom-select{
+        background: #ececec url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0rem center/8px 10px !important;
+    }
+    #condo-building .mblGrid .custom-select{
+        background: #ececec url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0rem center/8px 10px !important;
+    }
+}
+@media (max-width: 736px){
+    #condo-building .mblList .custom-select{
+        background: #ececec url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0rem center/8px 10px !important;
+    }
+    #condo-building .mblGrid .custom-select{
+        background: #ececec url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0rem center/8px 10px !important;
+    }
+}
+@media (max-width: 667px){
+    #condo-building .mblList .custom-select{
+        background: #ececec url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0rem center/8px 10px !important;
+    }
+    #condo-building .mblGrid .custom-select{
+        background: #ececec url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0rem center/8px 10px !important;
+    }
+}
+@media (max-width: 568px){
+    #condo-building .properties-slider .listing-box img{
+        min-height: 300px;
+    }
+    #condo-building .properties-slider.condo-slider .listing-box{
+        height: 300px !important;
+    }
+    #condo-building .properties-slider .slick-slide img{
+        height: 300px !important;
+    }
+    #condo-building .te-property-card{
+        height: 300px !important;
+    }
+}
+@media (max-width: 414px){
+    #condo-building ul#dataListTab ul#dataGridTab, li a span.tabsFSize{
+        font-size: 11px !important;
+    }
+    /*#condo-building .condo-pv-url p{
+        font-size: 12px;
+    }*/
+    #condo-building .condo-idx-list .condo-sub-title{
+        font-size: 18px !important;
+    }
+    #condo-building #myTabContent h4{
+        font-size: 13px !important;
+        font-weight: bold;
+    }
+    #condo-building #dataListTab .font-size-sm-12{
+        font-size: 16px !important;
+    }
+    #condo-building .heading .te-font-size-14{
+        font-size: 11px;
+    }
+    #condo-building .heading h3{
+        font-size: 20px;
+    }
+    #condo-building .mblList .custom-select{
+        background: #ececec url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0rem center/8px 10px !important;
+    }
+    #condo-building .mblGrid .custom-select{
+        background: #ececec url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0rem center/8px 10px !important;
+    }
+}
+@media (max-width: 395px){
+    #condo-building .mblList .custom-select:after{
+        background: #ececec url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0rem center/8px 10px !important;
+    }
+    #condo-building .mblGrid .custom-select:after{
+        background: #ececec url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0rem center/8px 10px !important;
+    }
+}
+@media (max-width: 375px){
+    #condo-building .heading .te-font-size-14{
+        font-size: 11px;
+    }
+    #condo-building #dataListTab .font-size-sm-12{
+        font-size: 14px !important;
+    }
+    #condo-building .condo-idx-list .condo-sub-title{
+        font-size: 14px !important;
+    }
+    #condo-building #myTabContent h4{
+        font-size: 11px !important;
+    }
+    #condo-building .heading h3{
+        font-size: 20px;
+    }
+    #condo-building ul#dataListTab ul#dataGridTab, li a span.tabsFSize{
+        font-size: 10px !important;
+    }
+    .list-grid-dropdown .dropdown-menu{
+
+        transform: translate3d(8px, 47px, 0px) !important;
+        background: #ececec !important;
+    }
+    .list-grid-dropdown #listgridOptions:after {
+        content: unset !important;
+    }
+    .list-grid-dropdown .listgridOptions{
+        border-radius: unset !important;
+        border: 1px solid #dee2e6!important;
+    }
+}
+@media (max-width: 320px){
+    #condo-building .heading .te-font-size-14{
+        font-size: 10px;
+    }
+    /*#condo-building .condo-pv-url p{
+        font-size: 10px;
+    }*/
+    #condo-building .condo-idx-list .condo-sub-title{
+        font-size: 13px !important;
+    }
+    #condo-building .condo-idx-list .font-size-sm-12{
+        font-size: 9px !important;
+    }
+    #condo-building #myTabContent h4{
+        font-size: 9px !important;
+    }
+    #condo-building ul#dataListTab ul#dataGridTab, li a span.tabsFSize{
+        font-size: 7px !important;
+    }
+    #condo-building #share-btn{
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+}

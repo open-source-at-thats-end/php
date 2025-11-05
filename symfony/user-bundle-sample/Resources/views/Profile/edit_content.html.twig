@@ -1,0 +1,319 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% form_theme form 'CABMainBundle:Form:fields.html.twig' %}
+
+<div class="fos_user_user_show">
+    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
+
+    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+</div>
+
+
+<section class="content-body" role="main">
+    <header class="page-header">
+        <h2>User Profile</h2>
+
+        <div class="right-wrapper pull-right">
+            <ol class="breadcrumbs">
+                <li>
+                    <a href="{{ url('sonata_admin_dashboard') }}">
+                        <i class="fa fa-home"></i>
+                    </a>
+                </li>
+                <li><span>Pages</span></li>
+                <li><span>User Profile</span></li>
+            </ol>
+
+            <a data-open="sidebar-right" class="sidebar-right-toggle"><i class="fa fa-chevron-left"></i></a>
+        </div>
+    </header>
+
+    <!-- start: page -->
+
+    <div class="row">
+        <div class="col-md-4 col-lg-3">
+
+            <section class="panel">
+                <div class="panel-body">
+                    <div class="thumb-info mb-md">
+                        {% if user.avatar is not null %}
+                            {% set avatar = '/uploads/avatar/' ~ user.avatar %}
+                        {% else %}
+                            {% set avatar = '/bundles/cabmain/images/no_image_available.jpg' %}
+                        {% endif %}
+                        <img class="img-responsive" src="{{ asset(avatar) | imagine_filter('profile_avatar') }}"
+                             alt="profile"/>
+
+                        <div class="thumb-info-title">
+                            <span class="thumb-info-inner">{{ user.username }}</span>
+                            {% for key, role in user.roles %}
+                                {% if key == 0 %}
+                                    <span class="thumb-info-type">{{ role }}</span>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+        <div class="col-md-8 col-lg-6">
+
+            <div class="tabs">
+                <ul class="nav nav-tabs tabs-primary">
+                    <li>
+                        <a href="{{ path('fos_user_profile_show') }}">Overview</a>
+                    </li>
+                    <li class="active">
+                        <a data-toggle="tab" href=href="{{ path('fos_user_profile_edit') }}
+                           aria-expanded="true">Edit</a>
+                    </li>
+
+                </ul>
+                <div class="tab-content">
+
+                    <div class="tab-pane active" id="edit">
+                        {{ form_start(form, {"attr": { "action": path('fos_user_profile_edit'),"class":"fos_user_profile_edit"}}) }}
+
+                            <h4 class="mb-xlg">Personal Information</h4>
+
+                            <div class="form-group">
+                                <label for="profileCompany" class="col-md-3 control-label">{% trans %}
+                                    Username{% endtrans %}</label>
+
+                                <div class="col-md-8">
+                                    {{ form_widget(form.username) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="profileCompany" class="col-md-3 control-label">{% trans %}
+                                    Email{% endtrans %}</label>
+
+                                <div class="col-md-8">
+                                    {{ form_widget(form.email) }}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="profileCompany" class="col-md-3 control-label">{% trans %}
+                                    Avatar{% endtrans %}</label>
+
+                                <div class="col-md-8">
+                                    {{ form_widget(form.avatar) }}
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="profileFirstName" class="col-md-3 control-label">{% trans %}First
+                                    Name{% endtrans %}</label>
+
+                                <div class="col-md-8">
+                                    {{ form_widget(form.firstName) }}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="profileLastName" class="col-md-3 control-label">{% trans %}Last
+                                    name{% endtrans %}</label>
+
+                                <div class="col-md-8">
+                                    {{ form_widget(form.lastName) }}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="profileCompany" class="col-md-3 control-label">{% trans %}Mobile
+                                    phone{% endtrans %}</label>
+
+                                <div class="col-md-8">
+                                    {{ form_widget(form.phoneMobile) }}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="profileCompany" class="col-md-3 control-label">{% trans %}Phone
+                                    Home{% endtrans %}</label>
+
+                                <div class="col-md-8">
+                                    {{ form_widget(form.phoneHome) }}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="profileCompany" class="col-md-3 control-label">{% trans %}Phone
+                                    work{% endtrans %}</label>
+
+                                <div class="col-md-8">
+                                    {{ form_widget(form.phoneWork) }}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="profileAddress" class="col-md-3 control-label">{% trans %}
+                                    Address{% endtrans %}</label>
+
+                                <div class="col-md-8">
+                                {{ form_widget(form.address) }}
+                                </div>
+                                <div class="col-md-8">
+                                    {{ form_widget(form.latUser) }}
+                                </div>
+                                <div class="col-md-8">
+                                    {{ form_widget(form.lngUser) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="profileAddress" class="col-md-3 control-label">{% trans %}Address
+                                    info{% endtrans %}</label>
+
+                                <div class="col-md-8">
+                                    {{ form_widget(form.addressComplement) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="profileAddress" class="col-md-3 control-label">{% trans %}
+                                    CP{% endtrans %}</label>
+
+                                <div class="col-md-8">
+                                    {{ form_widget(form.postCode) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="profileAddress" class="col-md-3 control-label">{% trans %}
+                                    City{% endtrans %}</label>
+
+                                <div class="col-md-8">
+                                    {{ form_widget(form.city) }}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="profileAddress" class="col-md-3 control-label">{% trans %}
+                                    Country{% endtrans %}</label>
+
+                                <div class="col-md-8">
+                                    {{ form_widget(form.country) }}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="profileCompany" class="col-md-3 control-label">{% trans %}
+                                    Handicap{% endtrans %}</label>
+
+                                <div class="col-md-8">
+
+
+                                    {{ form_widget(form.isHandicap) }}
+                                </div>
+                            </div>
+
+
+                            {% if user.isCompany == true %}
+                                <hr class="dotted tall">
+                                <h4 class="mb-xlg">The compagny Information</h4>
+
+                                <div class="form-group">
+                                    <label for="profileCompany" class="col-md-3 control-label">{% trans %}
+                                        Name{% endtrans %}</label>
+
+                                    <div class="col-md-8">
+                                        {{ form_widget(form.nameCompany) }}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profileCompany" class="col-md-3 control-label">{% trans %}
+                                        Siren{% endtrans %}</label>
+
+                                    <div class="col-md-8">
+                                        {{ form_widget(form.siren) }}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profileCompany" class="col-md-3 control-label">{% trans %}
+                                        Phone{% endtrans %}</label>
+
+                                    <div class="col-md-8">
+                                        {{ form_widget(form.phoneCompany) }}
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                            <div class="row">
+                                <div class="col-md-9 col-md-offset-3">
+                                    {{ form_widget(form) }}
+                                </div>
+                            </div>
+                            <div>
+                                <input class="btn btn-primary" type="submit" value="{{ 'profile.edit.submit'|trans }}"/>
+                            </div>
+                        </form>
+
+
+                        </form>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-3">
+
+
+
+        </div>
+
+    </div>
+    <!-- end: page -->
+</section>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#fos_user_profile_form_phoneMobile").intlTelInput({
+            //allowExtensions: true,
+            //autoFormat: false,
+            //autoHideDialCode: false,
+            //autoPlaceholder: false,
+            defaultCountry: "auto",
+            geoIpLookup: function (callback) {
+                $.get('http://ipinfo.io', function () {
+                }, "jsonp").always(function (resp) {
+                    var countryCode = (resp && resp.country) ? resp.country : "";
+                    callback(countryCode);
+                });
+            },
+            nationalMode: false,
+            numberType: "MOBILE",
+            //onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
+            preferredCountries: ['fr'],
+            utilsScript: "{{asset('test/assets/lib/utils.js')}}"
+
+        });
+        $("#fos_user_profile_form_phoneHome,#fos_user_profile_form_phoneWork,#fos_user_profile_form_phoneCompany").intlTelInput({
+            //allowExtensions: true,
+            //autoFormat: false,
+            //autoHideDialCode: false,
+            //autoPlaceholder: false,
+            defaultCountry: "auto",
+            geoIpLookup: function (callback) {
+                $.get('http://ipinfo.io', function () {
+                }, "jsonp").always(function (resp) {
+                    var countryCode = (resp && resp.country) ? resp.country : "";
+                    callback(countryCode);
+                });
+            },
+            nationalMode: false,
+            //numberType: "MOBILE",
+            //onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
+            preferredCountries: ['fr'],
+            utilsScript: "{{asset('test/assets/lib/utils.js')}}"
+
+        });
+
+
+    });
+</script>
+<script>
+    $('#navprofile').addClass('nav-expanded');
+    $('#navprofileshow').css("color", "white");
+</script>

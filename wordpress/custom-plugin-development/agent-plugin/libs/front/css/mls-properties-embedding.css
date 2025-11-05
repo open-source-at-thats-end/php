@@ -1,0 +1,30 @@
+.te-mls-property-embedding{
+	flex: 0 0 100%;
+}
+
+.te-mls-property-embedding .te-sort-by{
+	color: #0261df;
+	font-size: 17px;
+}
+
+
+
+@media (max-width: 320px) {
+	.te-mls-property-embedding .te-sort-by {
+    	font-size: 15px;
+	}
+
+	.te-mls-property-embedding .te-property-results{
+		font-size: 15px;
+	}
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,383 @@
+
+/*#et-main-area {
+    margin-top : 60px !important;
+}*/
+.single-property-gallery-container {
+    position: relative;
+}
+
+.single-property-gallery > figure {
+    float: left;
+    width: 25%;
+    position: relative;
+    height: 310px;
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid #fff;
+}
+
+.single-property-gallery > figure.sp-gallery-main-img {
+    width: 50%;
+    height: 620px;
+}
+.te-property-card {
+    height: 268px;
+}
+.single-property-gallery > figure > a {
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    -webkit-transition: all 2s linear;
+    -o-transition: all 2s linear;
+    transition: all 2s linear;
+}
+.single-property-gallery > figure:hover > a {
+    transform: scale(1.05, 1.05);
+}
+
+.te-pd-gallery-view-more{
+    bottom: 21%;
+    right: 21%;
+}
+
+.te-cover {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.te-cover-bottom {
+    background-position: center bottom;
+}
+.te-cover-top {
+    background-position: center top;
+}
+
+.te-property-agent-detail{
+    margin-top: -22%;
+}
+
+.te-card .card-body{
+    /*font-size: 15px;*/
+    font-size: 12px;
+}
+.te-card .card-body p{
+    /*font-size: 15px;*/
+    font-size: 12px !important;
+}
+
+.te-property-details-full .te-card {
+    border:2px solid #ececec;
+}
+
+.te-mortgage-calculator small{
+    font-size: 72%;
+}
+
+.te-property-details-full .te-card-header.collapsed:before {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+
+/* property detail start */
+
+.te-table-property-detail tbody tr td:nth-child(2){
+    font-weight: 600;
+}
+
+.te-table-property-detail tbody tr{
+    border-bottom: 1px solid #a0a0a0;
+}
+
+.te-list-style-property-detail li:before{
+    content: "·";
+    width: 4px;
+    padding-right: 6%;
+}
+
+.te-list-style-property-detail li{
+    line-height: 29px;
+    margin-left: 12px;
+    display: flex;
+    list-style: outside url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
+}
+.NoBreakSection{
+    break-inside: avoid;
+    overflow: hidden;
+}
+.te-gutter-colum{
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+
+}
+
+.te-heading-property-details-features button:not(:last-child){
+    border-right: 1px solid #929292;
+}
+
+.te-address-heading-property-details{
+    font-size: 18px;
+}
+
+.te-heading-property-details-features button p{
+    font-size: 16px;
+}
+
+/* property detail end */
+
+te-list-style-property-detail{
+    list-style: outside none none;
+    margin-block: 0px;
+    /*margin-bottom: var(--gutter);*/
+    padding-inline-start: 0px;
+}
+.pdetail-no-img{
+    height: 620px;
+}
+.pdetail-no-img img{
+    height: 100%;
+}
+.blurDetailPage{
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -o-filter: blur(3px);
+    -ms-filter: blur(3px);
+    filter: blur(3px);
+}
+.btn-gray{
+    background-color: #f3f3f3 !important;
+    color: black !important;
+}
+#share-btn.dropdown-toggle::after {
+    content:none !important;
+}
+.disclaimer_img
+{
+    max-width: 25%;
+    float: left;
+    /*margin: 0 20px 20px 0;*/
+    padding: 10px;
+}
+#frmCalculator .te-bg-light label, #monthly_payment+p {
+    color: #A9A9A9!important;
+}
+.price-detail-section{
+    margin-left: 3rem !important;
+}
+@media (min-width: 1600px) and (max-width: 3840px){
+    .listing-crypto-detail .te-address-heading-property-details {
+        font-size: 18px;
+    }
+}
+@media (max-width: 1440px) {
+
+    .single-property-gallery > figure.sp-gallery-main-img {
+        height: 584px;
+    }
+
+    .single-property-gallery > figure {
+        height: 292px;
+    }
+
+    .te-pd-gallery-view-more{
+        right: 20%;
+    }
+}
+
+@media (max-width: 1280px) and (max-height: 800px) {
+
+    .single-property-gallery > figure.sp-gallery-main-img {
+        height: 490px;
+    }
+
+    .single-property-gallery > figure {
+        height: 245px;
+    }
+
+    .te-pd-gallery-view-more {
+        right: 19%;
+    }
+    .price-detail-section{
+        margin-left: 6rem !important;
+    }
+
+}
+
+@media (max-width: 1024px) {
+    .te-address-heading-property-details {
+        font-size: 18px;
+    }
+
+    .te-pd-gallery-view-more{
+        right: 18%;
+    }
+    .price-detail-section{
+        margin-left: unset !important;
+    }
+
+}
+
+@media (min-width: 901px) and (max-width: 1024px) {
+    .te-save-propery-detail, .te-share-propery-detail{
+        font-size: 10px !important;
+    }
+}
+@media (min-width: 1280px) and (max-width: 1440px) {
+    .listing-crypto-detail .te-address-heading-property-details{
+        font-size: 18px;
+    }
+    .listing-crypto-detail h5.txt-heading{
+        font-size: 1rem !important;
+    }
+    .listing-crypto-detail .te-heading-property-details-features button p{
+        font-size: 15px !important;
+    }
+}
+@media (min-width: 1024px) and (max-width: 1024px) {
+    .listing-crypto-detail .te-address-heading-property-details{
+        font-size: 16px;
+    }
+    .listing-crypto-detail h5.txt-heading{
+        font-size: 1rem !important;
+    }
+    .listing-crypto-detail .te-heading-property-details-features button p{
+        font-size: 13px !important;
+    }
+}
+
+
+@media (max-width: 900px) {
+
+    .single-property-gallery > figure {
+        height: 225px;
+        width: 50%;
+    }
+
+    .single-property-gallery > figure:nth-child(4),
+    .single-property-gallery > figure:nth-child(5) {
+        display: none;
+    }
+
+    .single-property-gallery > figure.sp-gallery-main-img {
+        height: 450px;
+    }
+
+     .te-heading-property-details-features button h5{
+        font-size: 14px;
+    }
+
+    .te-heading-property-details-features button p{
+        font-size: 12px;
+    }
+
+    .te-gutter-colum{
+    -webkit-column-count: initial;
+    -moz-column-count: initial;
+    column-count: initial;
+    }
+
+    .te-pd-all-features-main-title{
+        font-size: 18px;
+    }
+
+    .te-pd-gallery-view-more{
+        right: 15%;
+    }
+    .pdetail-no-img{
+        height: 225px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .disclaimer_img {
+        max-width: 45% !important;
+        float: left;
+        margin: 0 20px 20px 0;
+        padding: 10px;
+    }
+}
+@media (max-width: 760px) {
+
+    .single-property-gallery > figure.sp-gallery-main-img {
+        height: 356px;
+    }
+
+    .single-property-gallery > figure {
+        height: 178px;
+    }
+
+    .te-property-details-full .te-card .card-body ul li {
+        width: 100% !important;
+    }
+
+    .te-heading-property-details-features button:not(:last-child) {
+        border-right: initial;
+    }
+
+    .te-heading-save-share-button{
+        display: inline-flex;
+    }
+
+    .te-heading-save-share-button .te-save-propery-detail, .te-heading-save-share-button .dropdown{
+        width: 50%;
+    }
+
+    .te-mobile-contact-agent{
+        bottom: 0;
+        left: 0;
+        z-index: 9999 !important;
+    }
+
+    .te-pd-footer-disclaimer-title{
+        font-size: 18px;
+    }
+
+    .te-pd-gallery-view-more {
+        right: 31%;
+    }
+
+    .pdetail-no-img{
+        height: 356px;
+    }
+
+}
+
+@media (max-width: 414px) {
+    .pdetail-no-img{
+        height: 235px;
+    }
+}
+@media (max-width: 375px) {
+    .pdetail-no-img{
+        height: 211px;
+    }
+}
+@media (max-width: 320px) {
+    .te-pd-title-font, .te-pd-sub-title{
+        font-size: 14px;
+    }
+
+    .te-heading-property-details-features button{
+        padding-left: 1% !important;
+        padding-right: 1% !important;
+    }
+
+    .te-pd-gallery-view-more {
+        right: 27%;
+    }
+    .pdetail-no-img{
+        height: 190px;
+    }
+}
+
+@media (min-width: 3500px) {
+    .te-pd-gallery-view-more {
+        right: 23%;
+    }
+}

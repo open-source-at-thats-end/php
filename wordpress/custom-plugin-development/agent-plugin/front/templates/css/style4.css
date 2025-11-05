@@ -1,0 +1,90 @@
+
+/*.te-property-card:hover .te-property-details
+{
+    transform: unset !important;
+}*/
+.te-style-6 .te-property-details
+{
+    transform: unset !important;
+}
+/*.te-property-card:hover .te-p-5
+{
+    padding-top: 100px !important;
+}*/
+.style4-features{
+    font-size: 13px;
+    font-weight: 600;
+}
+.style-6.te-property-details-price{
+    font-weight: 500;
+}
+.style4-features > span {
+    padding: 0 5px;
+}
+.style4-title{
+    font-size: 13px;
+    font-weight: 600;
+}
+.btn-style4
+{
+    font-size: 15px !important;
+    color: white;
+}
+.btn-style4:hover{
+    color: #0261df;
+}
+.pt-100
+{
+    padding-top: 100px !important;
+}
+.pt-120
+{
+    padding-top: 120px !important;
+}
+.style6-gradient{
+    background: rgba(255,255,255,.8);
+    color: black !important;
+}
+.img-fav{
+     right: 3% !important;
+}
+.listings-height{
+    height: 28.125vw;
+}
+.listings-height:hover .te-property-fig {
+    transform: scale(1.16);
+}
+/*Start style 6*/
+.te-style-6 .crypto-data {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    bottom: 120px;
+    color: #fff !important;
+}
+.te-style-6 .crypto-data ul{
+    line-height: 17px !important;
+}
+@media(max-width:810px)
+{
+    .te-style-6.listings-height{
+        height: 40.125vw !important;
+    }
+
+    .te-property-details-price {
+            font-size: 14px !important;
+        }
+}
+
+/*End style 6*/
+@media(max-width:430px)
+{
+   .listings-height{
+    height: 50vw;
+}
+    .te-style-6.listings-height{
+        height: 75vw !important;
+    }
+
+
+}

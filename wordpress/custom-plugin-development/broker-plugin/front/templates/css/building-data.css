@@ -1,0 +1,91 @@
+#building-data{
+    max-width: 490px;
+}
+#building-data .list-stats li{
+    list-style: none;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-right: 1px solid rgba(255,255,255,1);
+    border-bottom: 1px solid rgba(255,255,255,1);
+    padding-right: unset;
+    padding-left: unset;
+}
+
+#building-data .list-stats li p{
+    font-size: 13px !important;
+}
+#building-data .list-stats li .num-stat{
+    font-size: 30px;
+    line-height: 54px;
+    margin-bottom: 15px;
+}
+#building-data .list-stats li .num-stat::after{
+    /*content: "";
+    !*display: block;*!
+    height: 1px;
+    margin: 12px auto 0;
+    background-color: #fff;
+    width: 105px;*/
+}
+/*#largest_price::after {
+    display : block;
+
+    !*display: block;*!
+    height: 1px;
+    margin: 12px auto 0;
+    background-color: #fff;
+    width: 90px;
+}*/
+/*#building-data ul:nth-child(2) li:nth-child(1) .num-stat::after{
+    display : block;
+
+    !*display: block;*!
+    height: 1px;
+    margin: 12px auto 0;
+    background-color: #fff;
+    width: 90px;
+}*/
+
+@media (min-width: 667px){
+    #building-data .list-stats li:nth-child(2n+2){
+        border-right: unset;
+    }
+    #building-data .list-stats li:nth-child(5){
+        border-bottom: unset;
+    }
+    #building-data .list-stats li:nth-child(6){
+        border-bottom: unset;
+    }
+}
+@media (max-width: 568px){
+    #building-data .list-stats li{
+        list-style: none;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        border-right: unset;
+        border-bottom: 1px solid rgba(255,255,255,1);
+        padding-right: unset;
+        padding-left: unset;
+    }
+    #building-data .list-stats li:nth-child(6){
+        border-bottom: unset;
+    }
+}
+@media (max-width: 414px){
+    #building-data h2{
+        font-size: 33px;
+    }
+    #building-data .list-stats li .num-stat {
+        font-size: 40px;
+    }
+}
+@media (max-width: 375px){
+    #building-data h2{
+        font-size: 29px;
+    }
+}
+@media (max-width: 320px){
+    #building-data h2{
+        font-size: 24px;
+    }
+}

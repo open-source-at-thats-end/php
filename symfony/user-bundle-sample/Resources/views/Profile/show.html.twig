@@ -1,0 +1,7 @@
+{% if app.user.roles[0] == 'ROLE_CUSTOMER' %}
+    {{ include('CABUserBundle:Profile:template_customer.html.twig') }}
+{% else %}
+    {{ include('CABUserBundle:Profile:template_admin.html.twig') }}
+{% endif %}
+
+

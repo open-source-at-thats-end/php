@@ -1,0 +1,9 @@
+{% extends "CABMainBundle::layout.html.twig" %}
+{% trans_default_domain 'frontend' %}
+{% block title %}{% trans %}Sign Up{% endtrans %}{% endblock %}
+{% block main_content %}
+    {% block fos_user_content %}
+        {% include "FOSUserBundle:Registration:register_content.html.twig" %}
+    {% endblock fos_user_content %}
+{% endblock main_content %}
+

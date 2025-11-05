@@ -1,0 +1,363 @@
+{% extends "::base.html.twig" %}
+ {% block headdoc %}
+     <link rel="stylesheet" href="{{ asset('css/checkout.css') }}">
+ {% endblock headdoc %}
+{% set user = app.user %}
+{% block content %}
+    {% set target_path = app.request.query.get("target_path") %}
+        <main class="content {% if app.user is  null %} bg-light-white {% endif %} m-height-500 p20">
+            <div class="container-fluid cien">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="gptv-title no-border">
+                            <p class="title">{#javascript:history.back(-1);#}
+                                <a href="javascript:void(0)" title="" class="ml15">
+                                    {% if payment is defined and payment == true %}  <i class="fa fa-shopping-cart icon"></i> Panier {% else %}<i class="fa fa-download icon"></i> Download{% endif %}
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="wrapper {% if cart.is_cart_empty() == false %}bg-3{% endif %} p-0">
+
+                {#}% if app.user is null %}
+                <div class="f-s-16 text-center gptv-checkout-title">
+                    Identifiez vous
+                </div>
+                {% endif %#}
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-8 col-md-offset-2 gptv-checkout {% if app.user is not null and cart.is_cart_empty() == false%}bg-white{% endif %}">
+                        {% if app.user is null %}
+
+
+                           {# <div class="gptv-login">
+                                <div class="brand">
+                                    <a href="{{ url('home') }}">
+                                        <img class="img-responsive" src="{{ asset("img/login/logo-login.png") }}" alt="GrandPrix Tv" />
+                                    </a>
+                                </div>
+                                <form id="checkout-form" action="{{ path("fos_user_security_check") }}?target_path={{ target_path|url_encode }}" method="post">
+                                   {# <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />#}
+                                   {# <label class="username"><input name="_username" type="text" placeholder="Votre email" required autofocus tabindex="1" autocomplete="off" /></label>
+
+                                    <label class="pwd">
+                                        <input name="_password" type="password" placeholder="Votre mot de passe" required tabindex="1" autocomplete="off" />
+                                    </label>
+                                    <label class="button text-center">
+                                       {# <input class="btn-more" name="_submit" value=" CONNECTER" type="submit">#}
+                                      {#  <button class="btn-more" name="_submit" value=" CONNECTER" type="submit">Continuer</button>
+                                    </label>
+
+                                    <p class="remember">
+                                        <a href="">Mot de passe oublié?</a>
+                                    </p>
+                                    {% if target_path %}
+                                        <input type="hidden" name="_target_path" value="{{ target_path }}" />
+                                    {% endif %}
+                                </form>
+                                <div class="text-center">
+                                    <label class="f-s-16 text-white">
+                                        Nouveau chez GRANDPRIX?
+                                    </label>
+                                    <div class="">
+                                        <a href="{{ url("middleware_register", {'profile': 'libertee'}) }}" class="btn-submit btn-more">Creer Votre Compte GRANDPRIX TV</a>
+                                    </div>
+                                </div>
+                            </div>#}
+                            {% else %}
+                            <div class="row no-margin">
+                                {% if app.user is not null and cart.is_cart_empty() == false  %}
+                                    <h1 class="order-video f-s-16 text-center p-t-10">
+                                        {% if payment is defined and payment == true %}
+                                                Passer la commande
+                                        {% else %}
+                                            Votre commande est finalisee
+                                        {% endif %}
+                                    </h1>
+                                {% endif %}
+
+                                {% if cart.is_cart_empty() == false %}
+                                    <div class="col-lg-12 ">
+                                        {% for item in cart.get_item() %}
+                                            <div class="row  order-video p-t-10" id="{{ cart.get_i_id(item) }}">
+                                                <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 p-b-10">
+                                                    <img src="{{ cart.get_i_image(item) }}" onerror="this.src='/img/nofoto/no-foto-big.jpg';" width="140" height="80" />
+                                                </div>
+                                                <div class="col-lg-6 col-md-3 col-sm-12 col-xs-12 details">
+                                                    <div class="row">
+                                                        <div class="col-xs-3 text-right pl-0 pr-5">
+                                                            <p><strong>Evenement: </strong></p>
+                                                        </div>
+                                                        <div class="col-xs-9 p-0">
+                                                            <p>{{ cart.get_ie_event_title(item) }}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-3 text-right pl-0 pr-5">
+                                                            <p><strong>Epreuve: </strong></p>
+                                                        </div>
+                                                        <div class="col-xs-9 p-0">
+                                                            <p>{{ cart.get_ie_round_title(item) }}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-3 text-right pl-0 pr-5">
+                                                            <p><strong>Cavalier: </strong></p>
+                                                        </div>
+                                                        <div class="col-xs-9 p-0">
+                                                            <p>{{ cart.get_ie_rider_title(item) }}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-3 text-right pl-0 pr-5">
+                                                            <p><strong>Cheval: </strong></p>
+                                                        </div>
+                                                        <div class="col-xs-9 p-0">
+                                                            <p>{{ cart.get_ie_horse_title(item) }}</p>
+                                                        </div>
+                                                    </div>
+                                                    {#<p><span class="font-bold text-right ">EVENT:</span> <span class="text-left">{{ cart.get_ie_event_title(item) }}</span></p>
+                                                    <p><span class="font-bold text-right">Round:</span> <span class="text-left">{{ cart.get_ie_round_title(item) }}</span></p>
+                                                    <p><span class="font-bold text-right">Round:</span> <span class="text-left">{{ cart.get_ie_rider_title(item) }}</span></p>
+                                                    <p><span class="font-bold text-right">Horse:</span> <span class="text-left">{{ cart.get_ie_horse_title(item) }}</span></p>#}
+                                                </div>
+                                                <div class="actions col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12">
+                                                    {% if payment is defined and payment == true %}
+                                                    <button class="btn-submit item" {#onclick="location.href='{{ url("checkout")}}'"#} data-remove-item-from-cart='true'  data-ref-id="{{ cart.get_i_id(item) }}" data-ref-type="1">
+                                                        <span>Supprimer</span>
+                                                    </button>
+                                                    {% else %}
+                                                        <button class="item btn-submit btn-download"
+                                                                onclick="location.href='{{ url("download_video", {'id':  cart.get_i_id(item) }) }}'">
+                                                            <i class="fa fa-download orange"></i>
+                                                            <span>Télécharger</span>
+                                                        </button>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                        <!--<div class="row order-video">
+                                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 text-center p-b-10">
+                                                <img src="https://static.grandprix.tv/images/Rounds/1115/22980/1055641.jpg" onerror="this.src='/img/nofoto/no-foto-big.jpg';" width="140" height="80">
+                                            </div>
+                                            <div class="col-lg-9 col-md-6 col-sm-6 col-xs-12 details">
+                                                <p>EVENT:</p>
+                                                <p>Round:</p>
+                                                <p>Rider:</p>
+                                                <p>Horse:</p>
+                                            </div>
+                                        </div>-->
+
+                                        <div class="row order-video">
+
+                                                {% if payment is defined and payment == true %}
+                                                    <div class="col-lg-6 f-s-16 p-b-10">
+                                                        Montant Total: <strong class="text-orange">{{ cart.get_total_ttc()|round(2) }} Euros</strong> TTC
+                                                    </div>
+                                                    <div class="col-lg-6 f-s-16 p-b-10">
+                                                        <div class="row">
+                                                            <div class="col-lg-7">
+                                                                <input value="{{ cart.get_applied_coupon_code() }}" name="ref_coupon_code" placeholder="Avez-vous un coupon?" class="input-sm input-edit unknown" autocomplete="off" type="text" />
+                                                            </div>
+                                                            <div class="col-lg-5">
+                                                                <button type="button" class="btn-submit item" data-apply-coupon="true">
+                                                                    <span>Appliquer</span>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                {% else %}
+                                                    <div class="col-lg-6 f-s-16 p-b-10">
+                                                        Numéro de transaction<br /><strong class="text-orange">{{ cart.get_transaction_id() }}</strong>
+                                                    </div>
+                                                    <div class="col-lg-6 f-s-16 p-b-10 text-right">
+                                                        {% if cart.get_applied_coupon_code() != '' %}
+                                                            Code promo appliqué<br /><strong class="text-orange">{{ cart.get_applied_coupon_code() }}</strong>
+                                                        {% endif %}
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                {% if payment is defined and payment == true %}
+                                <form id="gptv-place-order" method="post">
+                                    <div class="col-lg-12">
+                                        <div class="row {% if card_details is not null  %}text-center{% endif %}">
+                                            {% if card_details is not null  %}
+                                            <div class="col-lg-6">
+                                                <div class="row text-center">
+                                                    <div class="f-s-16 text-center font-bold">
+                                                        Votre Carte de paiement:
+                                                    </div>
+                                                </div>
+                                                <div class="row text-center">
+                                                    <div class="hidden-lg hidden-md hidden-sm col-xs-12">
+                                                        <img src="{{ asset("img/payment/authentic-secure-xs.png") }}" />
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="container-fluid">
+                                                        <div id="display-card" class="display-card"></div>
+                                                        <div class="p-t-10"><strong>J'utilise ma carte utilise pour mon abonnement pour effetuer cet achat..</strong></div>
+                                                        <br/>
+
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="text-center">
+                                                       {# <input class="btn-submit" name="useOnFileCard" value="Continue" type="submit" data-submit="true" data-ref-url="{{ url('download_order') }}" formnovalidate>#}
+                                                        <button class="btn-submit" name="useOnFileCard" value="Continue" type="submit" data-submit="true" data-ref-url="{{ url('download_order') }}" formnovalidate>Continue</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            <div class="{% if card_details is null %}col-lg-8 col-md-offset-2{% else %}col-lg-6{% endif %}">
+                                                <div class="row text-center">
+                                                    <div class="f-s-16 text-center font-bold">
+                                                        Utiliser ce moyen de paiement:
+                                                    </div>
+                                                </div>
+                                                <div class="row text-center">
+                                                    <div class="hidden-lg hidden-md hidden-sm col-xs-12">
+                                                        <img src="{{ asset("img/payment/authentic-secure-xs.png") }}" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="container-fluid">
+                                                        <div class="add-card-wrapper"></div>
+
+                                                        <br/>
+
+                                                        <div class="row -text-center" id="new-card-detail">
+                                                            <div class="col-md-12">
+                                                                <label class="cardNumber">
+                                                                    {#{{ form_widget(form.number, {
+                                                                        'attr': {
+                                                                            'placeholder': 'Numéro de carte',
+                                                                            'full_name':'number'
+                                                                        }
+                                                                    }) }}#}
+                                                                    <input name="number" type="text" placeholder="Numéro de carte" class="input-md input-edit inputbig" required autocomplete="off" />
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <label class="expiry">
+                                                                    {#{{ form_widget(form.expiry, {
+                                                                        'attr': {
+                                                                            'placeholder': 'mois/an',
+                                                                            'full_name':'expiry'
+                                                                        }
+                                                                    }) }}#}
+                                                                    <input placeholder="mois/an" type="text" name="expiry" value="" required>
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <label class="CVC">
+                                                                    {#{{ form_widget(form.cvc, {
+                                                                        'attr': {
+                                                                            'placeholder': 'N° de sécurité (CVC)',
+                                                                        }
+                                                                    }) }}#}
+                                                                    <input name="cvc" type="text" placeholder="N° de sécurité (CVC)" class="input-md input-edit inputmini" required="" maxlength="4" autocomplete="off" />
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <label class="checkbox">
+                                                                    <input type="checkbox" name="saveCreditCardOnFile" class="check-field" value="yes">
+                                                                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Enregistrer ce moyen de paiement. </font></font></span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 text-center p-b-10">
+
+                                                            {#<input class="btn-submit" name="useNewCard" value="Continue Using New Card" type="submit" data-submit="true" data-ref-url="{{ url('download_order') }}">#}
+                                                            <button class="btn-submit" name="useNewCard" value="Continue Using New Card" type="submit" data-submit="true" data-ref-url="{{ url('download_order') }}">Payer avec cette carte</button>
+                                                        </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        </form>
+                                {% endif %}
+                                    </div>
+
+                                {% else %}
+                                    <div class="col-md-12 f-s-16 text-center p-t-10 p-b-10 ">
+                                        <i class="fa fa-shopping-cart fa-5x text-orange"></i>
+                                        <div class="title">Votre panier est vide</div>
+                                        <hr>
+                                        <br><br><br><br>
+                                        <div>
+                                            <a class="btn btn-submit" href="{{ url("home") }}">Retour aux evenements</a>
+                                        </div>
+                                    </div>
+                                {% endif %}
+
+                            </div>
+                        {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+
+{% endblock content %}
+{% block js_footer %}
+    {{ parent() }}
+    <script src="{{ asset("js/PaymentCard/card.js") }}"></script>
+{% if payment is defined and payment == true %}
+    <script>
+
+        new Card({
+            form: document.querySelector('#display-card'),
+            container: '.display-card',
+
+            {% if card_details is not null %}
+                placeholders: {
+                    number: '**** **** **** {{ card_details.last4}}',
+                    name: '{{ me.name }}',
+                    expiry: '{{ card_details.ExpMonth}}/{{ card_details.ExpYear}}',
+                    cvc: '000'
+                }
+            {% else %}
+                placeholders: {
+                    name: '{{ me.name }}'
+                }
+            {% endif %}
+        });
+
+        var element = document.querySelectorAll(".jp-card");
+        {% if card_details is not null %}
+            var card_brand = '{{ card_details.CardBrand|replace(' ','')|lower }}';
+            if(card_brand == 'visa')
+            {
+                for (var i = 0; i < element.length; ++i) {
+                    element[i].classList.add("jp-card-identified");
+                    element[i].classList.add("jp-card-visa");
+                }
+            }
+        {% endif %}
+        new Card({
+            form: document.querySelector('#new-card-detail'),
+            container: '.add-card-wrapper',
+            placeholders: {
+                number: '**** **** **** ****',
+                name: '{{ me.name }}',
+                expiry: '**/**',
+                cvc: '***'
+            }
+        });
+
+
+    </script>
+{% endif %}
+{% endblock js_footer %}

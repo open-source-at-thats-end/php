@@ -1,0 +1,41 @@
+{% extends "CABMainBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block title %}{% trans %}Reset password{% endtrans %} {% endblock %}
+{% block main_content %} 
+    {% block fos_user_content %}
+ 
+        
+  <main role="main" class="main blue">
+           <!-- Page info -->
+           <header class="site-title green">
+               <div class="wrap">
+                   <div class="container">
+                       <h1>{% trans %}Reset password to email{% endtrans %}</h1>
+                       
+                   </div>
+               </div>
+           </header>  
+            <div class="wrap">
+               <div class="row">
+                   <!--- Content -->
+                   <div class="content col-md-6 col-md-offset-3">
+                       <!--Login-->
+                       <div class="box"> 
+  
+                           <p><b>{{ 'resetting.check_email'|trans({'%email%': email}) }}</b></p>
+                   
+    
+                        </div>
+                   </div>
+               </div>
+        
+            </div>
+        
+        </main>
+ {% endblock %}
+{% endblock main_content %}
+
+
+

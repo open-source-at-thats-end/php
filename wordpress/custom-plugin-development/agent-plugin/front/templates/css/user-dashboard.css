@@ -1,0 +1,5 @@
+.te-admin-pages aside .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+	background-color: #3a3a3a;
+	color: white !important;
+}
+

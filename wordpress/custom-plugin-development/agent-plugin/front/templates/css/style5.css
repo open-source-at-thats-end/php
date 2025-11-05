@@ -1,0 +1,96 @@
+
+.te-property-card:hover .te-property-details
+{
+    transform: unset !important;
+}
+.te-property-card:hover .te-p-5
+{
+    padding-top: 100px !important;
+}
+.style4-features{
+    font-size: 13px;
+    font-weight: 600;
+}
+.style-6.te-property-details-price{
+    font-weight: 500;
+}
+.style4-features > span {
+    padding: 0 5px;
+}
+.style4-title{
+    font-size: 14px;
+    font-weight: 500;
+}
+.btn-style4
+{
+    font-size: 15px !important;
+    color: white;
+}
+.btn-style4:hover{
+    color: #0261df;
+}
+.pt-100
+{
+    padding-top: 100px !important;
+}
+.pt-120
+{
+    padding-top: 120px !important;
+}
+.style6-gradient{
+    background: rgba(255,255,255,.8);
+    color: black !important;
+}
+.img-fav{
+     right: 3% !important;
+}
+.listings-height{
+    height: 28.125vw;
+}
+.listings-height:hover .te-property-fig {
+    transform: scale(1.16);
+}
+@media(max-width:1024px)
+{
+   .listings-height{
+    /*height: 50vw;*/
+    height: 300px;
+}
+}
+.te-property-details-price {
+    font-size: 18px;
+    font-weight: 600;
+}
+.crypto-data ul {
+    line-height: 12px !important;
+}
+.te-font-weight-300 {
+    font-weight: 300 !important;
+}
+.te-font-weight-500 {
+    font-weight: 500 !important;
+}
+.te-font-weight-600 {
+    font-weight: 600 !important;
+}
+.te-font-weight-700 {
+    font-weight: 700 !important;
+}
+.te-font-size-12 {
+    font-size: 12px !important;
+}
+.te-font-size-13 {
+    font-size: 13px !important;
+}
+.te-font-size-14 {
+    font-size: 14px !important;
+}
+.te-font-size-15 {
+    font-size: 15px !important;
+}
+.te-font-size-17 {
+    font-size: 17px !important;
+}
+.te-font-size-18 {
+    font-size: 18px !important;
+}

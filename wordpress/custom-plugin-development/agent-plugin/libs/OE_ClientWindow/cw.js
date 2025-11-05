@@ -1,0 +1,51 @@
+var cw_at_init=false,cn='cyh_cw',wh_split='*';
+var CW_W_XS=575,CW_W_SM=767,CW_W_MD=991,CW_W_LG=1199,CW_W_XL=1200,CW_W_XXL=1920;
+
+var CW_S_XS='XS',CW_S_SM='SM',CW_S_MD='MD',CW_S_LG='LG',CW_S_XL='XL',CW_S_XXL='XXL';
+function cw(){
+    var wh,c,ca = document.cookie;
+    if(ca.indexOf(cn+'=') == -1) return false;
+    c = ca.split(cn+'=');
+    c = c[1].split(';');
+    wh = c[0];
+    wh = wh.split(wh_split);
+    if(wh[0] && wh[1])
+    {
+        if(wh[0] >= CW_W_XL){return CW_S_XL;}
+        else if(wh[0] <= CW_W_XS){return CW_S_XS;}
+        else if(wh[0] <= CW_W_SM){return CW_S_SM;}
+        else if(wh[0] <= CW_W_MD){return CW_S_MD;}
+        else if(wh[0] <= CW_W_LG){return CW_S_LG;}
+    }
+    return false;
+}
+function cw_set_config(){
+    var prv = cw(),ori=window.orientation,w=screen.width,h=screen.height;
+    /*if(ori==90 || ori==-90){w = screen.height;h = screen.width;}*/
+    var is_c_exist=document.cookie.indexOf(cn),cv=w+wh_split+h,ed=365,d=new Date();
+    d.setTime(d.getTime() + (ed*24*60*60*1000));
+    var exp = "expires="+d.toUTCString();
+    var dp = document.domain.split('.');
+    var domain = '.'+dp[dp.length-2]+'.'+dp[dp.length-1];
+    document.cookie = cn+"="+cv+";"+exp+";domain="+domain+";path=/";
+    setTimeout(function(){
+        if(cw_at_init == true && (is_c_exist === -1 || prv === false || (prv !== false && prv != cw()))){
+            /*if(((prv == CW_W_XS || prv == CW_W_SM || prv == CW_W_MD) && (cw() == CW_S_LG || cw() == CW_S_XL)) || ((prv == CW_S_LG || prv == CW_S_XL) && (cw() == CW_W_XS || cw() == CW_W_SM || cw() == CW_W_MD)))
+            {*/
+                window.location.reload(true);
+            //}
+        }
+        else if(cw_at_init == false && (prv !== false && prv != cw())){
+
+            /*if(((prv == CW_W_XS || prv == CW_W_SM || prv == CW_W_MD) && (cw() == CW_S_LG || cw() == CW_S_XL)) || ((prv == CW_S_LG || prv == CW_S_XL) && (cw() == CW_W_XS || cw() == CW_W_SM || cw() == CW_W_MD)))
+            {*/
+                window.location.reload(true);
+            //}
+        }
+    },500);
+    return true;
+}
+cw_set_config();
+/*document.getElementsByTagName("body")[0].onresize=function(){cw_set_config();}*/
+window.addEventListener("resize",function(){cw_set_config();},false);
+window.addEventListener("orientationchange",function(){cw_set_config();},false);

@@ -1,0 +1,49 @@
+Array
+(
+    [psearch_title] => 101 bay harbor
+    [psearch_result_limit] => 
+    [psearch_tag] => bal harbour,condos
+    [psearch_generate_mrktreport] => Yes
+    [psearch_generate_rental] => Yes
+    [psearch_display_tab] => Yes
+    [mlslist] => 
+    [add] => 
+    [minprice] => 100000
+    [maxprice] => 
+    [city] => Array
+        (
+            [0] => Bay Harbor Islands
+        )
+
+    [sdivlist] => 101 bay harb
+    [minlotsizesqft] => 
+    [maxlotsizesqft] => 
+    [minyear] => 
+    [maxyear] => 
+    [stype] => Array
+        (
+            [0] => Townhouse
+        )
+
+    [dom] => 
+    [waterfront] => 
+    [pool] => 
+    [status] => Array
+        (
+            [0] => active
+        )
+
+    [petsallowed] => 
+    [minsqft] => 
+    [maxsqft] => 
+    [minbed] => 
+    [maxbed] => 
+    [minbath] => 
+    [zipcode] => 
+    [office] => 
+    [agent] => 
+    [kword] => 
+    [sort_by] => price|desc
+    [pk] => 118
+    [psearch_criteria] => a:11:{s:11:"psearch_tag";s:18:"bal harbour,condos";s:27:"psearch_generate_mrktreport";s:3:"Yes";s:23:"psearch_generate_rental";s:3:"Yes";s:19:"psearch_display_tab";s:3:"Yes";s:8:"minprice";s:6:"100000";s:4:"city";a:1:{i:0;s:18:"Bay Harbor Islands";}s:8:"sdivlist";s:12:"101 bay harb";s:5:"stype";a:1:{i:0;s:9:"Townhouse";}s:6:"status";a:1:{i:0;s:6:"active";}s:7:"sort_by";s:10:"price|desc";s:2:"pk";s:3:"118";}
+)

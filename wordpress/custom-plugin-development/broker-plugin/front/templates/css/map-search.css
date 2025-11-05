@@ -1,0 +1,271 @@
+/*body{
+    overflow: hidden;
+}*/
+.te-btn .close-hover:hover {
+    color : gray !important;
+}
+.oeMarkerBlack {
+    position: absolute;
+    min-width: 50px;
+}
+
+.pricetag {
+    background-color: #3a3a3a;
+    border: #3a3a3a;
+    font-family: Arial !important;
+    border-radius: 2px;
+    color: #fff;
+    font-weight: 800;
+    box-sizing: border-box;
+    padding: 3px 7px;
+    width: auto;
+    text-align: center;
+    cursor: pointer;
+    font-size: 12px;
+    white-space: nowrap;
+}
+.oeibSmall {
+    position: absolute;
+    cursor: default;
+    z-index: 999;
+    /*border-bottom: 2px solid #df652e;*/
+    background-color: #fff;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+#m-loader {
+    position: absolute !important;
+    bottom: 25%;
+    left: 38%;
+}
+#m-loader div {
+    background: url("../images/trans.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #FFFFFF;
+    padding: 5px 0;
+    text-align: center;
+    width: 225px;
+    border-radius: 10px;
+}
+#m-loader img{
+    display: unset;
+}
+.l-loader {
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+    right: 0;
+    top:0;
+}
+.l-loader div{
+    background: url("../images/trans.png") scroll 0 0 rgba(0, 0, 0, 0);
+}
+.l-loader label{
+    background: url("../images/ajax-loader.gif") no-repeat center center;
+}
+.l-loader *{
+    position: absolute;
+    width: 100%;
+}
+#modal-sm-popup, #te-map-modal{
+    max-width: 100% !important;
+    width: 100% !important;
+}
+.border-black{
+    border: 3px solid #0b0a0a;
+}
+.map-hidden
+{
+    visibility: hidden !important;
+    display: unset !important;
+}
+.pms-market-report{
+    background: #e8e8e8;
+    padding: 15px;
+}
+.te-featured-properties{
+    overflow-x: hidden !important;
+}
+/*Overwrite Theme CSS Start*/
+/*.page-header{
+    display: none;
+}
+#content-inside{
+    max-width: unset;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.right-sidebar .content-area{
+    padding: 0!important;
+    border-right: none !important;
+    width: 100% !important;
+}*/
+/*Overwrite Theme CSS End*/
+#pms-area-pager{
+    list-style-type: none !important;
+}
+.te-search-property-title {
+    font-size: 17px !important;
+}
+/* Start customize map search page design */
+.customize-ldesign .dropdown-toggle::after{
+    width: .5em;
+    height: .5em;
+    margin: -.3em 0 0 .4em;
+    vertical-align: middle;
+    border: .3em solid;
+    border-width: 0 .10em .10em 0;
+    transform: rotateZ(45deg);
+    color : black !important;
+}
+/*.customize-ldesign .input-group-text {
+    background-color: #FFFFFF !important;
+    color: black !important;
+}*/
+#sort_content_end .dropdown-toggle::after{
+    width: .5em;
+    height: .5em;
+    margin: -.3em 0 0 .4em;
+    vertical-align: middle;
+    border: .3em solid;
+    border-width: 0 .10em .10em 0;
+    transform: rotateZ(45deg);
+    color : black !important;
+}
+.filter-button.filter-btn-txt:hover {
+    background: #333;
+    color: #fff;
+    fill: #fff !important;
+}
+/*.customize-ldesign .border-right {
+    border-right: 1px solid #ffffff !important;
+}*/
+
+.customize-ldesign .disclaimer-txt-color p {
+    color: #666 !important;
+    font-size : 13px !important;
+}
+.customize-ldesign .disclaimer_img {
+    max-width: 25%;
+    float: left;
+    /*margin: 0 20px 20px 0;*/
+    padding: 10px;
+}
+.customize-ldesign .btn-gray{
+    background-color: #f3f3f3 !important;
+    color: black !important;
+    height : 58px !important
+}
+.customize-ldesign #save_search.te-font-weight-500{
+   font-size: 13px !important;
+}
+.customize-ldesign .font-tab {
+    font-size: 14px !important;
+}
+.customize-ldesign .te-close-more-filter a{
+    color: unset;
+}
+.customize-ldesign .mt-12 {
+    margin-top: 12px !important;
+}
+.customize-ldesign .pt-11 {
+    padding-top: 11px !important;
+}
+
+/* End customize map search page design */
+@media (max-width: 2304px) and (min-width: 2304px) {
+    .te-more-filter {
+        transform: translate3d(-33.2vw, 47px, 0px) !important;
+    }
+}
+@media (max-width: 2160px) and (min-width: 2160px) {
+    .te-more-filter {
+        transform: translate3d(-32.9vw, 47px, 0px) !important;
+    }
+}
+@media (max-width: 1680px) {
+    .te-more-filter {
+        transform: translate3d(-31.8vw, 47px, 0px) !important;
+    }
+}
+@media (max-width: 1620px) {
+    .te-more-filter {
+        transform: translate3d(-31.6vw, 47px, 0px) !important;
+    }
+}
+@media (max-width: 1450px) {
+    .te-more-filter {
+        transform: translate3d(-31vw, 47px, 0px) !important;
+    }
+    .customize-ldesign .font-tab {
+        font-size: 13px !important;
+    }
+}
+@media (max-width: 1366px) {
+    .customize-ldesign .font-tab {
+        font-size: 12px !important;
+    }
+    .te-more-filter {
+        transform: translate3d(-30.7vw, 47px, 0px) !important;
+    }
+}
+@media (max-width: 1296px) {
+    .te-more-filter {
+        transform: translate3d(-30.4vw, 47px, 0px) !important;
+    }
+}
+@media (max-width: 1280px) {
+    .customize-ldesign .font-tab {
+        font-size: 11px !important;
+    }
+    .te-more-filter {
+        transform: translate3d(-30.2vw, 47px, 0px) !important;
+    }
+}
+@media (max-width: 900px) {
+    #map-infobox-small{
+        bottom: 10px;
+        top: unset !important;
+    }
+    #modal-sm-popup{
+        z-index: 999999;
+    }
+}
+@media (max-width: 834px){
+    .customize-ldesign .btn-gray {
+        background-color: #f3f3f3 !important;
+        color: black !important;
+        height: 57px !important;
+    }
+    .customize-ldesign .font-tab {
+        font-size: 12px !important;
+    }
+}
+@media (max-width: 768px) {
+    .customize-ldesign .btn-gray {
+        background-color: #f3f3f3 !important;
+        color: black !important;
+        height: 51px !important;
+    }
+    .customize-ldesign .border-right {
+        border-right: 1px solid #ffffff !important;
+    }
+}
+@media (max-width: 414px) {
+    .te-search-property-title {
+       font-size:13px !important;
+    }
+    #sort_content_end {
+        font-size:13px !important;
+    }
+    .customize-ldesign .btn-gray {
+        height: 51px !important;
+    }
+}
+/*.listings-box .te-property-card {
+    font-family: Open Sans, sans-serif !important;
+}*/
+.ibContent .te-property-card {
+    font-family: Open Sans, sans-serif !important;
+}
+
+

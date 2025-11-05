@@ -1,0 +1,148 @@
+.properties-slider-3 .slick-arrow{
+    position: absolute;
+    top: 90%;
+    margin-top: -20px;
+    font-size: 0;
+    width: 40px;
+    height: 40px;
+    border: none;
+    transform: none;
+    z-index: 10;
+    transition: background-color 0.3s;
+    background: 0 0;
+}
+
+.properties-slider-3 .slick-arrow:before{
+    content: "";
+    display: block;
+    position: absolute;
+    opacity: 1;
+    width: 21px;
+    height: 21px;
+    border: solid 3px;
+    top: 50%;
+    transform-origin: 50% 50%;
+    margin: -7px 0 0 -7px;
+    transform: rotate(45deg);
+    transition: border-color 0.3s;
+}
+.properties-slider-3 .slick-prev{
+    left: 4%;
+}
+.properties-slider-3 .slick-track
+{
+    display: flex !important;
+}
+
+.properties-slider-3 .slick-slide
+{
+    height: inherit !important;
+}
+.properties-slider-3 .slick-slide img{
+    height: 100vh;
+}
+.properties-slider-3 .slick-next{
+    right: 4%;
+    margin-right: 0;
+}
+.properties-slider-3 .slick-arrow.slick-prev::before{
+    left: 60%;
+    border-color: transparent transparent #000 #000;
+}
+.properties-slider-3 .slick-arrow.slick-next::before{
+    left: 40%;
+    border-color: #fff #fff transparent transparent;
+}
+.properties-slider-3 .property-info{
+    position: absolute;
+    /*opacity: 0.8;*/
+    z-index: 999;
+    color: #fff;
+    font-weight: 400;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+}
+.properties-slider-3 .property-info-3{
+    position: absolute;
+    z-index: 999;
+    color: black;
+    font-weight: 400;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10% 4%;
+    width: 50%;
+}
+.font-size-14
+{
+    font-size: 14px !important;
+}
+
+.style3-overlay{
+    position: absolute;
+    background:rgba(255,255,255,.8);
+    height: 100%;
+    width: 50%;
+    bottom: 0;
+    z-index: 1;
+    color:black;
+}
+.animation{
+    -webkit-animation-duration: .7s;
+    -webkit-animation-delay: .9s;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-duration: .7s;
+    -moz-animation-delay: .9s;
+    -moz-animation-timing-function: ease-in-out;
+    -moz-animation-fill-mode: both;
+    -o-animation-duration: .7s;
+    -o-animation-delay: .9s;
+    -o-animation-timing-function: ease-in-out;
+    -o-animation-fill-mode: both;
+    -ms-animation-duration: .7s;
+    -ms-animation-delay: .9s;
+    -ms-animation-timing-function: ease-in-out;
+    -ms-animation-fill-mode: both;
+    animation-duration: .7s;
+    animation-delay: .9s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+    -webkit-animation-name: fadeBottom;
+    animation-name: fadeBottom;
+}
+.properties-slider-3 .te-property-details-price{
+    font-weight: 500;
+}
+
+.properties-slider-3 .btn-style3{
+    border: 1px solid #000000;
+    border-radius: 0;
+}
+
+.properties-slider-3 .btn-style3:hover{
+    border: 1px solid #000000;
+    background-color: #000000;
+    color: #fff !important;
+    border-radius: 0;
+}
+@media(max-width: 896px)
+{
+    .properties-slider-3 .slick-slide img{
+        height: 100%
+    }
+    .style-3-desc{
+        display: none;
+    }
+}
+@media (max-width: 414px) {
+
+    .style-3-address
+    {
+        font-size: 14px !important;
+    }
+
+
+}

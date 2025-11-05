@@ -1,0 +1,27 @@
+#user-listing .pro-details-box{
+    border: 1px solid #b66dff !important;
+}
+#user-listing .pro-details-box label{
+    font-size: 15px;
+}
+#user-listing .pro-details-box span{
+    font-size: 15px;
+}
+#user-listing p{
+    font-size: 15px;
+}
+#user-listing h1{
+    color: #b66dff !important;
+    border-bottom: 2px solid #b66dff !important;
+}
+#user-listing h2{
+    color: #b66dff !important;
+    font-size: 15px;
+}
+
+.page-title b{
+    font-size: 1.125rem;
+}
+#top-data td ul li{
+    font-size: 15px;
+}

@@ -1,0 +1,255 @@
+{% trans_default_domain 'frontend' %}
+{% set array_courses = app.user.courses.getValues %}
+<!-- Page info -->
+<div class="main blue">
+
+    <header class="site-title green">
+        <div class="wrap">
+            <div class="container">
+                <h1>{% trans %}Welcome {% endtrans %} {{ app.user.lastName }}</h1>
+            </div>
+        </div>
+    </header>
+    <!-- //Page info -->
+    <div class="wrap">
+        <!--- Sidebar -->
+        <ul class="categories">
+            <aside class="one-fourth sidebar left">
+                <!-- Widget -->
+                <div class="widget">
+                    <ul class="categories">
+                        <li class=""><a href="#tab1">{% trans %}My bookings{% endtrans %}</a></li>
+                        <li class=""><a href="#tab2">{% trans %}My settings{% endtrans %}</a></li>
+                        <li class=""><a href="#tab3">{% trans %}My CB{% endtrans %}</a></li>
+                        <li class=""><a href="#tab4">{% trans %} Notifications{% endtrans %}</a></li>
+                        <li class=""><a href="{{ path('hackzilla_ticket') }}">{% trans %}My ticket{% endtrans %}</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- //Widget -->
+                <div class="color-green">
+                  <a href="{{ path('homepage') }}#booking"><h4 class="btn green">{% trans %}New course{% endtrans %}</h4></a>
+                </div>
+            </aside>
+        </ul>
+        <!--- //Sidebar -->
+
+        <!--- Content -->
+        <div class="three-fourth content">
+            <section class="block">
+                {% if array_courses is empty %}
+                    <article id="tab1" class="single" style="display: none;">
+                        <div class="box history">
+                            <div>
+                                <h6>{{ app.user.lastName }}, {% trans %}you haven't any booking{% endtrans %}</h6>
+                            </div>
+                            <a href="{{ path('homepage') }}#booking" class="btn large green">{% trans %}book now{% endtrans %}</a>
+                        </div>
+                    </article>
+                {% endif %}
+
+                <article id="tab1" class="single" style="display: block;">
+                    {% for course in array_courses %}
+                       <div class="box history">
+                            <h6>{{ course.departureDate|date("d.m.Y") }}
+                                <small>{% trans %}AT{% endtrans %}</small> {{ course.departureTime|date("H:i") }} | Ref : {{ course.id }}
+                                {% if  course.courseStatus == 0 %}
+                                    <span class="label label-danger right">{% trans %}WAITING TO ACCEPT{% endtrans %} </span>
+                                {% endif %}
+                                {% if  course.courseStatus == 4 %}
+                                    <span class="label label-warning right">{% trans %}AFFECTED{% endtrans %} </span>
+                                {% endif %}
+                                {% if  course.courseStatus == 6 %}
+                                    <span class="label label-success right">{% trans %}FINISH{% endtrans %}</span>
+                                {% endif %}
+                                {% if  course.courseStatus == 3 %}
+                                    <span class="label label-dark right">{% trans %}CANCELLED BY CUSTOMER{% endtrans %}</span>
+                                {% endif %}
+                                {% if  course.courseStatus == 15 %}
+                                    <span class="label label-dark right">{% trans %}CANCELLED BY DRIVER{% endtrans %}</span>
+                                {% endif %}
+                                {% if  course.courseStatus == 9 %}
+                                    <span class="label label-info right">{% trans %}ON RACE WITH CUSTOMER{% endtrans %}</span>
+                                {% endif %}
+                                {% if  course.courseStatus == 12 %}
+                                    <span class="label label-info right">{% trans %}ACCEPTED BY DRIVER{% endtrans %}</span>
+                                {% endif %}
+                                {% if  course.courseStatus == 13 %}
+                                    <span class="label label-info right">{% trans %}ARRIVAL DRIVER{% endtrans %}</span>
+                                {% endif %}
+                            </h6>
+                            <b>{% trans %}Departure{% endtrans %} : {{ course.startedAddress }}</b>
+                            {% if course.indicatorStartedAddress is empty %}
+                                <br>
+                            {% else %}
+                             <p>{% trans %}Indicator start address{% endtrans %} : {{ course.indicatorStartedAddress }}</p>
+                            {% endif%}
+                            <b>{% trans %}Arrival{% endtrans %} : {{ course.arrivalAddress }}</b>
+
+                            {% if course.indicatorArrivalAddress is not empty %}
+                                <p>{% trans %}Indicator arrival address{% endtrans %} : {{ course.indicatorArrivalAddress }}
+                            {% endif%}
+                            <p><b>{% trans %}Number of persons{% endtrans %} :</b> {{ course.personNumber}}</p>
+
+                            {%  if course.courseStatus == 4 or course.courseStatus == 0 %}
+                                {%  if course.courseDetailsTarif %}
+                                    {%  if course.courseDetailsTarif.isForfait == 0 %}
+                                        <p><b>{% trans %}The payment{% endtrans %} (estimation)</b> :
+                                        {{ course.courseDetailsTarif.tarifTotalTTC|number_format(course.company.format.currencyDecimals, '.', ',') }}
+                                        - {{ course.courseDetailsTarif.estimatedTarif|number_format(course.company.format.currencyDecimals, '.', ',') }}
+                                        {{ course.company.format.currencyCode }}
+                                    {% else %}
+                                        {%   if course.courseDetailsTarif.tarifTotalTTC is defined %}
+                                            <p> <b>{% trans %}The payment{% endtrans %} (forfait)</b> :
+                                            {{ course.courseDetailsTarif.tarifTotalTTC|number_format(course.company.format.currencyDecimals, '.', ',') }}
+                                            {{ course.company.format.currencyCode }}</p>
+                                        {%  endif %}
+                                    {% endif %}
+                                {% endif %}
+                            {% endif %}
+                            {%  if course.courseStatus == 6 %}
+                                <p> <b>{% trans %}The payment{% endtrans %}</b> :
+
+                                    {% if course.serviceTransportCourses is defined %}
+                                        {% for value in course.serviceTransportCourses() %}
+                                    {% if value.PriceView == 1 %}
+                                        {{ value.ServiceName() }}
+                                    {% else %}
+                                    {{ course.priceTTC|number_format(course.company.format.currencyDecimals, '.', ',') }}
+                                    {{ course.company.format.currencyCode }}</p>
+                                    {% endif %}
+                                        {% endfor %}
+                            {% endif %}
+                            {% endif %}
+                            {% if course.driver.phoneMobile is defined %}
+                            <div class="row">
+                                <div class="two-third">
+                                    <p><span>{% trans %}Driver contact{% endtrans %}: </span> {{ course.driver}}</p>
+                                </div>
+                                <div class="one-third">
+                                    <p><span>{{ course.driver.phoneMobile }}</span></p>
+                                </div>
+                            </div>
+                            {% endif %}
+
+                            <br>
+                            <div class="row show-grid">
+                                {% if course.courseStatus == 3 %}
+                                    <div class="col-md-6">
+                                        <span class="show-grid-block">
+                                            {% set course_id = course.id %}
+                                            {% set date_cancel = '' %}
+                                            {% for course_hist in history_courses[course_id] %}
+                                                {% if course_hist.status == 3 %}
+                                                    {% set date_cancel =  course_hist.createdAt|date("d-m-Y H:i:s")%}
+                                                {% endif %}
+                                            {% endfor %}
+                                            {% trans %}Course canceled on{% endtrans %} {{ date_cancel }}
+                                        </span>
+                                    </div>
+                                {% elseif "now"|date('Y-m-d') < course.departureDate|date('Y-m-d') %}
+                                    <div class="col-md-2">
+                                        <span class="show-grid-block">
+                                            <a class="btn small green" href="{{ path('cancel_course', {'course': course.id}) }}">{% trans %}cancel{% endtrans %}</a>
+                                        </span>
+                                    </div>
+                                    {#the SystemPay web service isn't activate, so we can't update the transaction#}
+                                    {# <div class="col-md-2"><span class="show-grid-block"><a href="{{ path("edit_course", {courseID: course.id}) }}"><button class="btn small orange">{% trans %}modify{% endtrans %}</button></a></span></div> #}
+                                {% endif %}
+                            </div>
+
+                        </div>
+                    {% endfor %}
+
+                </article>
+
+                <article id="tab2" class="single" style="display: none;">
+                    {{ render(controller("CABUserBundle:Profile:edit")) }}
+                </article>
+
+                <article id="tab3" class="single" style="display: none;">
+                    <div class="box history">
+                        <div>
+                            <h6>{% trans %}To facilitate you travel, the bank records your credit card so you do not have to return every time your information{% endtrans %}</h6>
+                        </div>
+                        {% if app.user.paymentId %}
+                            <div class="row show-grid">
+                                <div class="col-md-3"><span class="show-grid-block">{%trans%}Card type{%endtrans%}</span></div>
+                                <div class="col-md-3"><span class="show-grid-block">{%trans%}Card Number{%endtrans%}</span></div>
+                                <div class="col-md-3"><span class="show-grid-block">{%trans%}Expiration{%endtrans%}</span></div>
+                                <div class="col-md-3"><span class="show-grid-block">{%trans%}Erase{%endtrans%}</span></div>
+                            </div>
+                            <br>
+                            {% for card in app.user.paymentCards %}
+                                <div class="row show-grid">
+                                    <div class="col-md-3"><span class="show-grid-block">{{ card.cardBrand }} </span></div>
+                                    <div class="col-md-3"><span class="show-grid-block">{{ card.cardNumber }}</span></div>
+                                    <div class="col-md-3"><span class="show-grid-block">{{ card.monthExpiry ~ ' / ' ~ card.yearExpiry }}</span></div>
+                                    <div class="col-md-3"><span class="show-grid-block">
+                                            <button class="btn small red">{% trans %}Erase card{% endtrans %}</button></span>
+                                    </div>
+                                </div>
+                                <br>
+                            {% endfor %}
+                        {% endif %}
+                        <form action="https://paiement.systempay.fr/vads-payment/" method="POST" id="payment-form" class="form-inline">
+                            <span class="payment-errors"></span>
+                            <input type="hidden" name="vads_action_mode" value="INTERACTIVE" />
+                            <input type="hidden" name="vads_ctx_mode" value="TEST" />
+                            <input type="hidden" name="vads_currency" value="978" />
+                            <input type="hidden" name="vads_cust_city" value="{{ app.user.city }}" />
+                            <input type="hidden" name="vads_cust_country" value="{{ app.user.country }}" />
+                            <input type="hidden" name="vads_cust_email" value="{{ app.user.email }}" />
+                            <input type="hidden" name="vads_cust_first_name" value="{{ app.user.firstName }}" />
+                            <input type="hidden" name="vads_cust_id" value="{{ app.user.id }}" />
+                            <input type="hidden" name="vads_cust_last_name" value="{{ app.user.lastName }}" />
+                            <input type="hidden" name="vads_cust_legal_name" value="{{ app.user.nameCompany }}" />
+                            <input type="hidden" name="vads_cust_status" value="{{ app.user.isCompany }}" />
+                            <input type="hidden" name="vads_cust_title" value="{{ app.user.sexe }}" />
+                            <input type="hidden" name="vads_cust_zip" value="{{ app.user.postCode }}" />
+                            <input type="hidden" name="vads_page_action" value="REGISTER" />
+                            <input type="hidden" name="vads_redirect_error_message" value="{{ params.vads_redirect_error_message }}" />
+                            <input type="hidden" name="vads_redirect_error_timeout" value="{{ params.vads_redirect_error_timeout }}" />
+                            <input type="hidden" name="vads_redirect_success_message" value="{{ params.vads_redirect_success_message }}" />
+                            <input type="hidden" name="vads_redirect_success_timeout" value="{{ params.vads_redirect_success_timeout }}" />
+                            <input type="hidden" name="vads_return_mode" value="POST" />
+                            <input type="hidden" name="vads_site_id" value="{{ systempayment.vads_site_id }}" />
+                            <input type="hidden" name="vads_trans_date" value="{{ params.dateTransactionFormat }}" />
+                            <input type="hidden" name="vads_version" value="V2" />
+                            <input type="hidden" name="signature" value="{{ signature }}"/>
+                            <button class="btn large green" type="submit">{% if app.user.paymentId %}{% trans %}Another card{% endtrans %}{% else %}{% trans %}Register card{% endtrans %}{% endif %}</button>
+                        </form>
+                    </div>
+                    <div class="box history">
+                        <div>
+                            <h6>{% trans %}Have you need a company account ? Thank you for contacting us{% endtrans %}</h6>
+                        </div>
+                        <button class="btn large green" type="submit">{% trans %}send{% endtrans %}</button>
+                    </div>
+                </article>
+
+                <article id="tab4" class="single" style="display: none;">
+                    <div class="box history">
+                    {{  render (controller("CABUserBundle:Notification:manage",{ 'user': app.user })) }}
+                    </div>
+                </article>
+
+            </section>
+        </div>
+        <!--- //Content -->
+    </div>
+</div>
+<script>
+    $(function () {
+        $('ul.categories li:first').addClass('active');
+        $('.block article').hide();
+        $('.block article:first').show();
+        $('ul.categories li').on('click', function () {
+            $('ul.categories li').removeClass('active');
+            $(this).addClass('active');
+            $('.block article').hide();
+            var activeTab = $(this).find('a').attr('href');
+            $(activeTab).show();
+            return false;
+        });
+    });</script>
